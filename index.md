@@ -11,7 +11,7 @@ Replace this text with a brief description (2-3 sentences) of your project. This
 <!--**Replace the BlueStamp logo below with an image of yourself and your completed project. Follow the guide [here](https://tomcam.github.io/least-github-pages/adding-images-github-pages-site.html) if you need help.**
 
 ![Headstone Image](logo.svg)
-  -->
+
 # Final Milestone
 For your final milestone, explain the outcome of your project. Key details to include are:
 - What you've accomplished since your previous milestone
@@ -32,17 +32,46 @@ For your second milestone, explain what you've worked on since your previous mil
 
 **Don't forget to replace the text below with the embedding for your milestone video. Go to Youtube, click Share -> Embed, and copy and paste the code to replace what's below.**
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/y3VAmNlER5Y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/y3VAmNlER5Y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> -->
 
 # First Milestone
+<!-- Add video here -->
 
-In this first milestone I was able to connect my arduino to the MAX30101 and test out each sensor that is integrated in the board which came with libraries so I would not need to make the code from scratch.   After connecting the MAX30101 to the arduino I needed to figure out how to use a switch to change between the modes.  For this first milestone I focused on just switching between two modes: SpO2 and the pulse plotter.  After doing research on how to structure the code for a switch like this I was able to combine the code from both modes into one file and how the device is able to change between these modes.  
+Summary:
 
-Getting to this point was challenging since I have not had any coding experience or worked with an arduino before.  I also spent a lot of time trying to connect an OLED monitor to display the data from the sensor instead of it just being displayed on the computer.  However, the display was not compatible with the codes I needed to use for the device.  To fix this a different monitor was ordered.  I will try to connect this new monitor for my second milestone.  I also need to add a second switch to the device so it can switch between all four modes instead of just the two. 
+In this first milestone I was able to connect my arduino to the MAX30101 and test out each sensor that is integrated in the board which came with libraries so I would not need to make the code from scratch.   After connecting the MAX30101 to the arduino I needed to figure out how to use a switch to change between the modes.  For this first milestone I focused on switching between two modes: SpO2 and the pulse plotter.  After doing research on how to structure the code for a switch like this I was able to combine the code from both modes into one file and how the device is able to change between these modes.  
 
-**Don't forget to replace the text below with the embedding for your milestone video. Go to Youtube, click Share -> Embed, and copy and paste the code to replace what's below.**
+Components Used:
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/CaCazFBhYKs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+- MAX30101: Board with built in sensors that will be used for the customized pulse oximeter.
+- Small Rubberband: Wrapped around the sensor to keep the person's finger in place.
+- x9 Male to Male Jumper Wires: Connects the arduino to the switch and MAX30101.
+- x4 Female to Male Jumper Wires: Connects the MAX30101 to the arduino.
+- Switch: Changes between the two modes of SpO2 and Pulse Plotter.
+- 10K Ohm Resistor: Used as a pulldown resistor for the switch.
+- x2 470K Ohm Resistor: Used
+- Arduino Nano
+- 1 foot Mini-B USB to USB A Cord
+- Full Size Breadboard
+- x2 Mini Breadboards
+
+<!-- include link to website with the schematic for how to wire a button/switch on arduino-->
+
+Progress:
+
+I was able to learn how to connect the arduino nano to the MAX30101.  In order to do this I needed to solder on some header pins so jumper wires could connect the board to the arduino.  After I matched each pin to the pin in the arduino nano I was able to test out each of the four sensors that was included in the MAX30101.  In order to turn each sensor on I used the libraries that came with the MAX30101 and all of them were able to work although the SpO2 sensor is not as accurate as it could be.  After I got that to work I wanted to connect a switch to the device so I could switch between modes.  Although there are four different modes I started off with just two so I could use just one switch.  I found a schematic that showed how to wire a switch to an arduino.  Then I needed to find a way to add the code from the two sensors (SpO2 and the Pulse Plotter) and integrate it into the code controling the switch.  This was difficult since there were many things that needed to be defined and I needed to understand the code in order to know where they should be placed.  In the end I was able to combine all of the codes together and my device can now switch between recording SpO2 and the pulse plotter.
+
+Challenges:
+
+Getting to this point was challenging since I have not had any coding experience or worked with an arduino before.  It was difficult to combine the different codes for the SpO2 sensore and the Pulse Plotter into the code for the switch.  I also spent a lot of time trying to connect an OLED monitor to display the data from the sensor instead of it just being displayed on the computer.  However, the display was not compatible with the codes I needed to use for the device.  To fix this a different monitor was ordered, but I was not able to receive it in time to include it in my first milestone.  I also struggled with learning how to use arduino in general since I did now know the language of C++ or even what a library was.  
+
+Next Steps:
+
+Since I was unable to connect a monitor to my device for my first milestone I will try to connect this new monitor for my second milestone.  Hopefully the monitor will be able to change the data it displays with the changing of the switch.  It should also be able to display the Pulse Plotter.  I need to add a second switch to the device so it can switch between all four modes instead of just the two.  This will require for me to learn more about how to code a switch.  I will  need to figure out how to wire a second swithc to my breadboard since it is running out of room.  If possible I will add an LED and buzzer to my device so it will make a sound and light up when vitals are out of range. 
+
+<!--**Don't forget to replace the text below with the embedding for your milestone video. Go to Youtube, click Share -> Embed, and copy and paste the code to replace what's below.**
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/CaCazFBhYKs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> -->
 
 # Starter Project
 Summary:
@@ -68,7 +97,11 @@ Challenges:
 
 Soldering all of the cat pieces was fairly simple, however the paper instructions was slightly different than the instructional video that it came with (the cat was in a different orientation).  This inconsistency did not affect how the cat lamp functions though, just the appearance.  When looking closely at the body of the cat the circuit is able to be seen.  I had trouble understanding the circuit at the beginning since it seemed as if it was in series.  However, after researching some more I realized that the circuit had to be in parallel in order for the cat lamp to work.  The lines on the cat lamp marking the circuit pathway may have just been imprinted incorrectly.  After figuring this out, I was able to draw out the circuit to understand how the cat lamp functions.  
 
-**Don't forget to replace the text below with the embedding for your milestone video. Go to Youtube, click Share -> Embed, and copy and paste the code to replace what's below.**
+Next Steps:
+
+Aftr finished the cat lamp I now have experience soldering and reviewed how circuits work.  My next step is to start on my intensive project which is the customized pulse oximeter.  I will need to solder a little, but mainly this will involve the arduino and learning how to compile all of the code together for the sensor.  I also will learn how to connect the sensor to the arduino with jumper wires.
+
+<!--**Don't forget to replace the text below with the embedding for your milestone video. Go to Youtube, click Share -> Embed, and copy and paste the code to replace what's below.**
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/CaCazFBhYKs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
@@ -110,4 +143,4 @@ One of the best parts about Github is that you can view how other people set up 
 - [Example 2](https://sviatil0.github.io/Sviatoslav_BSE/)
 - [Example 3](https://arneshkumar.github.io/arneshbluestamp/)
 
-To watch the BSE tutorial on how to create a portfolio, click here.
+To watch the BSE tutorial on how to create a portfolio, click here. -->
