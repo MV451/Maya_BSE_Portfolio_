@@ -44,19 +44,22 @@ For your first milestone, describe what your project is and how you plan to buil
 
 # Starter Project
 Introduction:
+
 My starter project was a mini cat lamp that lights up whenever it is in the dark.  The purpose of this starter project was mainly for me to gain experience in soldering multiple pieces together.  The parts of the cat body are made up of the same material circuit boards are made up of so it will not burn when soldering.  The project also came with a photoresistor, transistor, LED, 100k resistor, switch, and battery.
 
 Materials:
-Cat lamp pieces
-Photoresistor: A type of light dependent resistor.  The more light shining on it means there will be less resistance.
-Transistor: Is like a switch that only allows current to move through it when there is current or voltage.
-LED: Stands for light emitting diode.  Current can only flow one way through (the longer leg is positive while the shorter leg is negative), so it is important to have it oriented correctly in the circuit. 
-100k resistor: Impedes the circuit’s current and prevents the LED from burning out.
-Switch: Opens or closes the circuit so the cat lamp has the ability to turn completely off regardless of the amount of light in the room.
-CR 2032 Coin Battery
-Coin Battery Holder
 
-Process
+- Cat lamp pieces
+- Photoresistor: A type of light dependent resistor.  The more light shining on it means there will be less resistance.
+- Transistor: Is like a switch that only allows current to move through it when there is current or voltage.
+- LED: Stands for light emitting diode.  Current can only flow one way through (the longer leg is positive while the shorter leg is negative), so it is important to have it    oriented correctly in the circuit. 
+- 100k resistor: Impedes the circuit’s current and prevents the LED from burning out.
+- Switch: Opens or closes the circuit so the cat lamp has the ability to turn completely off regardless of the amount of light in the room.
+- CR 2032 Coin Battery
+- Coin Battery Holder
+
+Process:
+
 Soldering all of the cat pieces was fairly simple, however the paper instructions were slightly different than the instructional video that it came with (the cat was in a different orientation).  This inconsistency did not affect how the cat lamp functions though, just the appearance.  When looking closely at the body of the cat the circuit is able to be seen.  I had trouble understanding the circuit at the beginning since it seemed as if it was in series.  However, after researching some more I realized that the circuit had to be in parallel in order for the cat lamp to work.  The lines on the cat lamp marking the circuit pathway may have just been imprinted incorrectly.  After figuring this out, I was able to draw out the circuit to understand how the cat lamp functions.  The circuit in the cat lamp is wired to be in parallel which means the current has two pathways it can possibly flow through.  One path has the transistor and LED while the other has the photoresistor.  Current is actually the movement of electrons and electrons prefer to take the path of least resistance.  When light shines on  the photoresistor the resistance decreases making that pathway more favorable.  Since more electrons are going through the photoresistor pathway there is less current going through the pathway with the transistor and LED.  The reduced current is not enough to go past the transistor and light up the LED.  This is why the lamp does not light up when it is exposed to light.  However, when the lamp is in the dark the resistance of the photoresistor increases causing more current to go through the other pathway.  This current is strong enough to get past the transistor and light up the LED.  This is how the cat lamp is able to turn on whenever it is dark.  The cat lamp is also able to be turned on “manually” by covering the photoresistor. 
 
 **Don't forget to replace the text below with the embedding for your milestone video. Go to Youtube, click Share -> Embed, and copy and paste the code to replace what's below.**
