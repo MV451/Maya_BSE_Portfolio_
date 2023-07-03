@@ -1,4 +1,7 @@
 # Customized Biometrics Display
+
+My project is a customized pulse oximeter.  It will have a SpO2, temperature, and heart rate sensor.  The device will also be able to plot the person’s pulse on a graph.  Switches will also be used to change between these modes.  
+
 Replace this text with a brief description (2-3 sentences) of your project. This description should draw the reader in and make them interested in what you've built. You can include what the biggest challenges, takeaways, and triumphs from completing the project were. As you complete your portfolio, remember your audience is less familiar than you are with all that your project entails!
 
 | **Engineer** | **School** | **Area of Interest** | **Grade** |
@@ -32,8 +35,6 @@ For your second milestone, explain what you've worked on since your previous mil
 <iframe width="560" height="315" src="https://www.youtube.com/embed/y3VAmNlER5Y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 # First Milestone
-
-My project is a customized pulse oximeter.  It will have a SpO2, temperature, and heart rate sensor.  The device will also be able to plot the person’s pulse on a graph.  Switches will also be used to change between these modes.  
 
 In this first milestone I was able to connect my arduino to the MAX30101 and test out each sensor that is integrated in the board which came with libraries so I would not need to make the code from scratch.   After connecting the MAX30101 to the arduino I needed to figure out how to use a switch to change between the modes.  For this first milestone I focused on just switching between two modes: SpO2 and the pulse plotter.  After doing research on how to structure the code for a switch like this I was able to combine the code from both modes into one file and how the device is able to change between these modes.  
 
