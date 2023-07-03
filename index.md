@@ -43,8 +43,8 @@ In this first milestone I was able to connect my arduino to the MAX30101 and tes
 
 Components Used:
 
-- MAX30101: Board with built in sensors that will be used for the customized pulse oximeter.
-- Small Rubberband: Wrapped around the sensor to keep the person's finger in place.
+- MAX30101 with headerpins
+- Small Rubberband
 - x9 Male to Male Jumper Wires: Connects the arduino to the switch and MAX30101.
 - x4 Female to Male Jumper Wires: Connects the MAX30101 to the arduino.
 - Switch: Changes between the two modes of SpO2 and Pulse Plotter.
@@ -54,6 +54,11 @@ Components Used:
 - 1 foot Mini-B USB to USB A Cord
 - Full Size Breadboard
 - x2 Mini Breadboards
+
+How the Parts Work Together:
+
+<!-- check to see why the pullup resistor was used-->
+The MAX30101 is a board that has the sensors that can record four different vital types.  The person is supposed to place their finger on the sensor where the light is flashing and use the mini rubberband to hold their finger in place.  Then female to male jumper wires were used to help connect the MAX30101 to the arduino nano.  Two 470K Ohm resistors were used as pullup resistors for the MAX30101.  Another breadboard was used to have the circuit with the switch since there was not much room on the main breadboard.  This also included a pulldown resistor for the switch.  The switch circuit and the MAX30101 all connect to the arduino nano and the Mini-B USB to USB A cord is was used to connect the device to my computer.
 
 <!-- include link to website with the schematic for how to wire a button/switch on arduino-->
 
@@ -80,7 +85,7 @@ My starter project was a mini cat lamp that lights up whenever it is in the dark
 
 Components Used:
 
-- Cat lamp pieces: Makes up the body of the cat lamp.
+- Cat lamp pieces
 - Photoresistor: A type of light dependent resistor.  The more light shining on it means there will be less resistance.
 - Transistor: Is like a switch that only allows current to move through it when there is current or voltage.
 - LED: Stands for light emitting diode.  Current can only flow one way through (the longer leg is positive while the shorter leg is negative), so it is important to have it    oriented correctly in the circuit. 
@@ -89,9 +94,12 @@ Components Used:
 - CR 2032 Coin Battery
 - Coin Battery Holder
 
-Progress:
+How the Parts Work Together:
 
-The circuit in the cat lamp is wired to be in parallel which means the current has two pathways it can possibly flow through.  One path has the transistor and LED while the other has the photoresistor.  Current is the movement of electrons and electrons prefer to take the path of least resistance.  When light shines on  the photoresistor the resistance decreases making that pathway more favorable.  Since more electrons are going through the photoresistor pathway there is less current going through the pathway with the transistor and LED.  The reduced current is not enough to go past the transistor and light up the LED.  This is why the lamp does not light up when it is exposed to light.  However, when the lamp is in the dark the resistance of the photoresistor increases causing more current to go through the other pathway.  This current is strong enough to get past the transistor and light up the LED.  This is how the cat lamp is able to turn on whenever it is dark.  The cat lamp is also able to be turned on “manually” by covering the photoresistor. 
+The cat lamp came with pieces that were similar to the material a circuit board is made up of and is what makes up most of the lamp.  Soldering all of the parts to the cat lamp not only attaches all of the pieces together, but also connected the other components to the circuit such as the transistor and LED. The circuit in the cat lamp is wired to be in parallel which means the current has two pathways it can possibly flow through.  One path has the transistor and LED while the other has the photoresistor.  Current is the movement of electrons and electrons prefer to take the path of least resistance.  When light shines on  the photoresistor the resistance decreases making that pathway more favorable.  Since more electrons are going through the photoresistor pathway there is less current going through the pathway with the transistor and LED.  The reduced current is not enough to go past the transistor and light up the LED.  This is why the lamp does not light up when it is exposed to light.  However, when the lamp is in the dark the resistance of the photoresistor increases causing more current to go through the other pathway.  This current is strong enough to get past the transistor and light up the LED.  This is how the cat lamp is able to turn on whenever it is dark.  The cat lamp is also able to be turned on “manually” by covering the photoresistor
+
+Progress:
+I was able to solder all of the pieces of the cat lamp together and understand exactly how it works.  All of the pieces of the cat lamp body were attached except for the arms which are removable.  They do not have a location ot solder them onto the cat lamp body.  The cat lamp can now be switched on and off and turns on when it is in the dark.  This happens due to the photoresistor and other components a part of the cat lamp circuit.
 
 Challenges:
 
