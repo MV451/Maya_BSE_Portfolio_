@@ -43,7 +43,7 @@ For your first milestone, describe what your project is and how you plan to buil
 <iframe width="560" height="315" src="https://www.youtube.com/embed/CaCazFBhYKs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 # Starter Project
-Introduction
+Introduction:
 My starter project was a mini cat lamp that lights up whenever it is in the dark.  The purpose of this starter project was mainly for me to gain experience in soldering multiple pieces together.  The parts of the cat body are made up of the same material circuit boards are made up of so it will not burn when soldering.  The project also came with a photoresistor, transistor, LED, 100k resistor, switch, and battery.
 
 Materials:
