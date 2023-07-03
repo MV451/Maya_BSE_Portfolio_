@@ -39,7 +39,7 @@ For your second milestone, explain what you've worked on since your previous mil
 
 Summary:
 
-In this first milestone I was able to connect my arduino to the MAX30101 and test out each sensor that is integrated in the board which came with libraries so I would not need to make the code from scratch.   After connecting the MAX30101 to the arduino I needed to figure out how to use a switch to change between the modes.  For this first milestone I focused on switching between two modes: SpO2 and the pulse plotter.  After doing research on how to structure the code for a switch like this I was able to combine the code from both modes into one file and how the device is able to change between these modes.  
+In this first milestone I was able to connect my arduino to the MAX30101 and test out each sensor that is integrated in the board which came with libraries so I would not need to make the code from scratch.   After connecting the MAX30101 to the arduino I needed to figure out how to use a switch to change between the modes.  For this first milestone I focused on switching between two modes: SpO2 and the pulse plotter.  After doing research on how to structure the code for a switch like this I was able to combine the code from both modes into one file so the device can change between these modes.  Now the MAX30101 board and the switch are connected to the arduino and the switch can control which vital the sensor is recording.
 
 Components Used:
 
