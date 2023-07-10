@@ -45,11 +45,11 @@ Components Used:
 
 - MAX30101 with Header Pins
 - Small Rubber Band
-- x9 Male to Male Jumper Wires: Connects the Arduino to the switch and MAX30101.
-- x4 Female to Male Jumper Wires: Connects the MAX30101 to the arduino.
-- Switch: Changes between the two modes of SpO2 and Pulse Plotter.
-- 10K Ohm Resistor: Used as a pulldown resistor for the switch.
-- x2 470K Ohm Resistor: Used
+- x9 Male to Male Jumper Wires
+- x4 Female to Male Jumper Wires
+- Switch
+- 10K Ohm Resistor
+- x2 470K Ohm Resistor
 - Arduino Nano
 - 1 foot Mini-B USB to USB A Cord
 - Full Size Breadboard
