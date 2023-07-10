@@ -1,6 +1,6 @@
 # Customized Biometrics Display
 
-My project is a customized pulse oximeter.  It will have a SpO2, temperature, and heart rate sensor.  The device will also be able to plot the person’s pulse on a graph.  Switches will also be used to change between these modes.  
+My project is a customized pulse oximeter.  It will be able to sense heart rate, temperature and  plot the person’s pulse on a graph.  The device will also have an ECG sensor too.  A button will also be used to switch between the sensors.  
 
 <!--Replace this text with a brief description (2-3 sentences) of your project. This description should draw the reader in and make them interested in what you've built. You can include what the biggest challenges, takeaways, and triumphs from completing the project were. As you complete your portfolio, remember your audience is less familiar than you are with all that your project entails!-->
 
