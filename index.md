@@ -43,9 +43,9 @@ In this first milestone I was able to connect my arduino to the MAX30101 and tes
 
 Components Used:
 
-- MAX30101 with headerpins
-- Small Rubberband
-- x9 Male to Male Jumper Wires: Connects the arduino to the switch and MAX30101.
+- MAX30101 with Header Pins
+- Small Rubber Band
+- x9 Male to Male Jumper Wires: Connects the Arduino to the switch and MAX30101.
 - x4 Female to Male Jumper Wires: Connects the MAX30101 to the arduino.
 - Switch: Changes between the two modes of SpO2 and Pulse Plotter.
 - 10K Ohm Resistor: Used as a pulldown resistor for the switch.
