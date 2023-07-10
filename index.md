@@ -24,7 +24,7 @@ For your final milestone, explain the outcome of your project. Key details to in
 <iframe width="560" height="315" src="https://www.youtube.com/embed/F7M7imOVGug" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>-->
 
 # Second Milestone
-<--For your second milestone, explain what you've worked on since your previous milestone. You can highlight:
+<!--For your second milestone, explain what you've worked on since your previous milestone. You can highlight:
 - Technical details of what you've accomplished and how they contribute to the final goal
 - What has been surprising about the project so far
 - Previous challenges you faced that you overcame
@@ -36,10 +36,10 @@ For your final milestone, explain the outcome of your project. Key details to in
 
 ## Summary:
 
-## Explanation
+Explanation
 For my second milestone my goal was to change my code to be able to switch between four modes and attach the OLED display.  The OLED display was supposed to display the vitals that the MAX30101 read along with the pulse plotter graph.  This milestone was difficult since I needed to troubleshoot several problems and made a significant modification to my project to fix it.  I decided to remove the SpO2 sensor code since it was causing many complications such as preventing the OLED display from turning on and preventing my device from running since it took up too much memory.  I was hesitant to remove this, but doing so allowed me to complete the rest of the main portion of my project.
 
-### Components Used:
+Components Used:
 - MAX30101 with Header Pins
 - Small Rubber Band
 - x9 Male to Male Jumper Wires
@@ -53,7 +53,7 @@ For my second milestone my goal was to change my code to be able to switch betwe
 - Full Size Breadboard
 - x2 Mini Breadboards
 
-### How the Components Work Together
+How the Components Work Together
 
 The MAX30101 still functions in the same way as in the first milestone, however it now communicates with the button instead of the switch.  Since the buttons and switch have similar functions the wiring overall did not change much.  The main change to my device is the addition of the OLED display.  The OLED display uses I2C so it is connected to the Arduino nano on the A4 and A5 pins.  It also uses 5V.  I am still using three different breadboards for different parts of my device to keep the wiring organized.  One for the MAX30101, one for the button, and one for the Arduino.  I also color coded the wires so it is easy to identify which wire is connected to which pin.<--add the last two sentences to the first milestone?-->
 
@@ -72,10 +72,10 @@ I am excited to have finished the main part of my project and am now ready to st
 
 ## Summary:
 
-### Explanation
+Explanation
 In this first milestone I was able to connect my arduino to the MAX30101 and test out each sensor that is integrated in the board which came with libraries so I would not need to make the code from scratch.   After connecting the MAX30101 to the arduino I needed to figure out how to use a switch to change between the modes.  For this first milestone I focused on switching between two modes: SpO2 and the pulse plotter.  After doing research on how to structure the code for a switch like this I was able to combine the code from both modes into one file so the device can change between these modes.  Now the MAX30101 board and the switch are connected to the arduino and the switch can control which vital the sensor is recording.
 
-### Components Used:
+Components Used:
 
 - MAX30101 with Header Pins
 - Small Rubber Band
@@ -89,7 +89,7 @@ In this first milestone I was able to connect my arduino to the MAX30101 and tes
 - Full Size Breadboard
 - x2 Mini Breadboards
 
-### How the Components Work Together
+How the Components Work Together
 
 <!-- check to see why the pullup resistor was used-->
 The MAX30101 is a board that has the sensors that can record four different vital types.  The person is supposed to place their finger on the sensor where the light is flashing and use the mini rubberband to hold their finger in place.  Then female to male jumper wires were used to help connect the MAX30101 to the arduino nano.  Two 470K Ohm resistors were used as pullup resistors for the MAX30101.  Another breadboard was used to have the circuit with the switch since there was not much room on the main breadboard.  This also included a pulldown resistor for the switch.  The switch circuit and the MAX30101 all connect to the arduino nano and the Mini-B USB to USB A cord is was used to connect the device to my computer.
