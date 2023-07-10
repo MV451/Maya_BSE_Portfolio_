@@ -55,7 +55,7 @@ Components Used:
 - Full Size Breadboard
 - x2 Mini Breadboards
 
-How the Parts Work Together:
+How the Components Work Together:
 
 <!-- check to see why the pullup resistor was used-->
 The MAX30101 is a board that has the sensors that can record four different vital types.  The person is supposed to place their finger on the sensor where the light is flashing and use the mini rubberband to hold their finger in place.  Then female to male jumper wires were used to help connect the MAX30101 to the arduino nano.  Two 470K Ohm resistors were used as pullup resistors for the MAX30101.  Another breadboard was used to have the circuit with the switch since there was not much room on the main breadboard.  This also included a pulldown resistor for the switch.  The switch circuit and the MAX30101 all connect to the arduino nano and the Mini-B USB to USB A cord is was used to connect the device to my computer.
