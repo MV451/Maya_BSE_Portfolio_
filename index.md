@@ -1,6 +1,6 @@
 # Customized Biometrics Display
 
-My project is a customized pulse oximeter.  It will be able to sense heart rate, temperature and  plot the person’s pulse on a graph.  The device will also have an ECG sensor too.  A button will also be used to switch between the sensors.  
+My project is a student designed project that I made myself.  It is a customized biometrics display that can record heart rate, temperature, plot the user’s pulse on a graph, and even has an EKG to measure the heart's electrical activity.  The user will be given instructions on an OLED display for how to use the device and the numerical data for their vitals.  This project was not easy to make and I ran into countless obstacles.  However, in the end it was very rewarding to know that I was able to take a project that I developed and create it myself.
 
 <!--Replace this text with a brief description (2-3 sentences) of your project. This description should draw the reader in and make them interested in what you've built. You can include what the biggest challenges, takeaways, and triumphs from completing the project were. As you complete your portfolio, remember your audience is less familiar than you are with all that your project entails!-->
 
@@ -22,6 +22,49 @@ For your final milestone, explain the outcome of your project. Key details to in
 **Don't forget to replace the text below with the embedding for your milestone video. Go to Youtube, click Share -> Embed, and copy and paste the code to replace what's below.**
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/F7M7imOVGug" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>-->
+
+# Third Milestone
+<!--For your second milestone, explain what you've worked on since your previous milestone. You can highlight:
+- Technical details of what you've accomplished and how they contribute to the final goal
+- What has been surprising about the project so far
+- Previous challenges you faced that you overcame
+- What needs to be completed before your final milestone 
+
+**Don't forget to replace the text below with the embedding for your milestone video. Go to Youtube, click Share -> Embed, and copy and paste the code to replace what's below.**
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/y3VAmNlER5Y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>-->
+
+## Summary:
+
+Explanation
+For this milestone I added the EKG (Electrocardiogram) to my project.  This proved to be extremely difficult since there were many things I needed to change in my code and wiring.  I needed to add an external power supply and another Arduino Nano.  Besides adding the EKG, I made changes such as removing the pull up resistors that I had for the A4 and A5 pins since they were unnecessary and may have slowed my device down. 
+
+Components Used:
+- x2 Arduino Nanos
+- x16 Female to Male Jumper Wires
+- x5 Male to Male Jumper Wires
+- External Power Supply
+- x2 1 foot Mini-B USB to USB A Cord
+- Barrel Jack Adapter
+- AD8232 Heart Monitor
+- x60 Disposable Surface EKG Electrodes
+- Electrode Cable (3 connecter)
+
+How the Components Work Together
+
+When I added the EKG I realized that there was too much noise interfering with the sensor and I needed to somehow reduce that.  The addition of an external power supply and another Arduino Nano works to reduce the electromagnetic fields around the EKG sensor so the data is readable.  The Arduinos are attached with a jumper wire on one of the digital pins.  This is how they are able to communicate with each other since the digital pins are able to send two types of signals (high and low) which work perfectly with the button.  When the button is pressed for the fourth time it tells the other Arduino to turn on the EKG since it is supposed to be the fourth mode.  Then when the button is pressed again the digital pin then changes to low and turns off the EKG. 
+
+## Progress:
+
+I made significant progress with this milestone since now my base project and the EKG are able to work together.  It took a long time to figure out how exactly to find the solution to what was causing the noise interfering with the EKG.  I needed to rewire my entire device and consolidate it onto two breadboards since I was originally using an extra breadboard for the button which was unnecessary.  The OLED monitor is able to display the instructions for how to use the device and which sensor mode it is on.  I am now finished with my project!
+
+## Challenges Faced
+This milestone was difficult for me since the EKG was not like any of the other sensors I have on my device.  The EKG measures the electrical activity of the heart.  However, anything that is plugged into power creates an electromagnetic field.  This field interferes with the EKG causing the data to be noisy meaning that there are extra waves.  After doing some research and receiving help I realized that I needed to separate the EKG from the rest of the devices since they were creating electromagnetic fields that interfered with the device.  This is why I ended up adding another Arduino Nano to my device and an external power supply.  I also found out how using a high-pass filter would lower the noise on my device.  This is a filter that blocks low frequencies the sensor picks up while letting high frequencies “pass” onto the plotter.  I tried a low-pass filter originally, but that did not help as much as the high-pass filter.  All of these modifications significantly lowered the noise in the EKG plotter.
+
+When I modified my device during this milestone something changed during the rewiring and in the code.  My device would not work at all after this which was alarming.  I needed to recheck all of the wiring and this is when I removed the two pull-up resistors since I wanted to remove anything that was not necessary (the pull-up resistors were initially meant for the OLED display that was not compatible with my device).  After I fixed my wiring and checked it over I needed to fix the code.  I ended up needing to go back to an older version of my code that still worked.  I then modified it to include the EKG and the new instructions I added to the OLED display.
+
+## Next Steps
+The next part of my project for me will be to CAD a case for my device on Onshape to be 3D printed.  I will also modify what is displayed on the OLED such as making my own splash screen at the beginning when the device is initializing and adding more information on the OLED screen so the user will know how to properly use the device.  I will also write brief instructions to know when using the device such as how to properly close out the serial plotter.
 
 # Second Milestone
 <!--For your second milestone, explain what you've worked on since your previous milestone. You can highlight:
