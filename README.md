@@ -1,3 +1,3 @@
-### Customized Biometrics Display
+### Cardiac Monitor with Temperature Sensing Capabilities
 ---
-This customized biometrics display is able to monitor pulse, SpO2, temperature, and heart rate.  It has an OLED display to show this data and a button to switch between sensors.
+This customized biometrics displaydevice is able to monitor pulse, heart rate, temperature, and the heart's electrical activity with an EKG.  It also has an OLED display to show this data and a button to cycle between the sensors.
