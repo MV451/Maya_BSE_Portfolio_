@@ -195,8 +195,699 @@ void loop() {
 
 }
 ```-->
+## Main Code
 <pre style="background:#fdfdfd : border:none; height:40pc">
-fjseifj esofjes
+/* This is my main code that is supposed to be uploaded to the main Arduino (attached to the OLED display and the MAX30101).  The EKG code is supposed to be opened up in a separate window and uploaded to the second Arduino. */
+
+//Fxns need to be declared at the beginning of the code so the computer knows it's coming (I put all of the actual fxns at the end)
+void Pulse();
+void Temp();
+void Bpm();
+
+// this constant won't change:
+const int buttonPin = 2;  // the pin that the pushbutton is attached to
+
+// Variables will change:
+int buttonMode = 0;       // counter for the number of button presses
+int buttonState = 0;      // current state of the button
+int lastButtonState = 0;  // previous state of the button
+
+/***************From Old Four Mode Code***************/
+
+byte ledBrightness = 60;  //Options: 0=Off to 255=50mA
+byte sampleAverage = 4;   //Options: 1, 2, 4, 8, 16, 32
+byte ledMode = 2;         //Options: 1 = Red only, 2 = Red + IR, 3 = Red + IR + Green
+byte sampleRate = 100;    //Options: 50, 100, 200, 400, 800, 1000, 1600, 3200
+int pulseWidth = 411;     //Options: 69, 118, 215, 411
+int adcRange = 4096;      //Options: 2048, 4096, 8192, 16384
+
+/***************Generally needed for the sensors?***************/
+#include <Wire.h>
+#include "MAX30105.h"
+MAX30105 particleSensor;
+// #define MAX_BRIGHTNESS 255
+
+/***************Generally needed for the sensors?***************/
+#include "heartRate.h"
+
+const byte RATE_SIZE = 4;  //Increase this for more averaging. 4 is good.
+byte rates[RATE_SIZE];     //Array of heart rates
+byte rateSpot = 0;
+long lastBeat = 0;  //Time at which the last beat occurred
+
+float beatsPerMinute;
+int beatAvg;
+
+/********From OLED********/
+
+#include <SPI.h>
+#include <Wire.h>
+#include <Adafruit_GFX.h>
+#include <Adafruit_SSD1306.h>
+
+#define SCREEN_WIDTH 128  // OLED display width, in pixels
+#define SCREEN_HEIGHT 64  // OLED display height, in pixels
+
+// Declaration for an SSD1306 display connected to I2C (SDA, SCL pins)
+// The pins for I2C are defined by the Wire-library.
+// On an arduino UNO:       A4(SDA), A5(SCL)
+// On an arduino MEGA 2560: 20(SDA), 21(SCL)
+// On an arduino LEONARDO:   2(SDA),  3(SCL), ...
+#define OLED_RESET -1        // Reset pin # (or -1 if sharing Arduino reset pin)
+#define SCREEN_ADDRESS 0x3C  ///< See datasheet for Address; 0x3D for 128x64, 0x3C for 128x32
+Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
+
+// #define NUMFLAKES     10 // Number of snowflakes in the animation example
+
+#define LOGO_HEIGHT 16
+#define LOGO_WIDTH 16
+static const unsigned char PROGMEM logo_bmp[] = {
+  0b00000000, 0b11000000,
+  0b00000001, 0b11000000,
+  0b00000001, 0b11000000,
+  0b00000011, 0b11100000,
+  0b11110011, 0b11100000,
+  0b11111110, 0b11111000,
+  0b01111110, 0b11111111,
+  0b00110011, 0b10011111,
+  0b00011111, 0b11111100,
+  0b00001101, 0b01110000,
+  0b00011011, 0b10100000,
+  0b00111111, 0b11100000,
+  0b00111111, 0b11110000,
+  0b01111100, 0b11110000,
+  0b01110000, 0b01110000,
+  0b00000000, 0b00110000
+};
+
+
+void setup() {
+  // initialize the button pin as a input:
+  pinMode(buttonPin, INPUT);
+  pinMode(11, OUTPUT);
+  digitalWrite(11, LOW);
+  // initialize serial communication:
+  //Serial.begin(115200);
+
+  /***************From SpO2 Setup***************/
+
+  // Serial.begin(115200);  // initialize serial communication at 115200 bits per second:
+
+  // pinMode(pulseLED, OUTPUT);
+  // pinMode(readLED, OUTPUT);
+
+  //Maybe I can remove the code above????
+  /********From OLED********/
+
+  // SSD1306_SWITCHCAPVCC = generate display voltage from 3.3V internally
+  if (!display.begin(SSD1306_SWITCHCAPVCC, SCREEN_ADDRESS)) {
+    //Serial.println(F("SSD1306 allocation failed"));
+    for (;;)
+      ;  // Don't proceed, loop forever
+  }
+
+  display.clearDisplay();
+  /*display.setTextSize(1);  // Draw 2X-scale text
+  display.setTextColor(SSD1306_WHITE);
+  display.println(F("Initializing..."));
+  display.println();*/
+  display.setTextSize(2);  // Draw 2X-scale text
+  display.setTextColor(SSD1306_WHITE);
+  // display.setCursor(0, 0);
+  display.println(F("Open"));
+  display.println(F("Plotter"));
+  display.setTextSize(1);  // Draw 2X-scale text
+  display.println(F("initializing..."));
+  display.println();
+  display.println(F("Note: Opening plotter"));
+  display.println(F("resets device"));
+  display.println();
+
+  display.display();  // Show initial text
+  delay(3000);
+
+  // Show initial display buffer contents on the screen --
+  // the library initializes this with an Adafruit splash screen.
+  display.display();
+  delay(500);  // Pause for 0.5 seconds
+
+  // Clear the buffer
+  // display.clearDisplay();
+
+  // Show the display buffer on the screen. You MUST call display() after
+  // drawing commands to make them visible on screen!
+  display.display();
+  delay(20);
+
+
+  // Initialize sensor
+  if (!particleSensor.begin(Wire, I2C_SPEED_FAST))  //Use default I2C port, 400kHz speed
+  {
+    Serial.println(F("MAX30105 was not found. Please check wiring/power."));
+    while (1)
+      ;
+  }
+  /********From OLED********/
+
+  // // SSD1306_SWITCHCAPVCC = generate display voltage from 3.3V internally
+  // if (!display.begin(SSD1306_SWITCHCAPVCC, SCREEN_ADDRESS)) {
+  //   //Serial.println(F("SSD1306 allocation failed"));
+  //   for (;;)
+  //     ;  // Don't proceed, loop forever
+  // }
+
+  // Show initial display buffer contents on the screen --
+  // the library initializes this with an Adafruit splash screen.
+  // display.display();
+  // delay(2000);  // Pause for 2 seconds
+
+  // Clear the buffer
+  // display.clearDisplay();
+
+  // Show the display buffer on the screen. You MUST call display() after
+  // drawing commands to make them visible on screen!
+  // display.display();
+  // delay(2000);
+}
+
+void loop() {
+
+  if (buttonMode == 0) {
+    Pulse();
+    delay(500);
+  } else if (buttonMode == 1) {
+    Bpm();
+    delay(500);
+  } else if (buttonMode == 2) {
+    Temp();
+    delay(500);
+  } else if (buttonMode == 3) {
+    EKG();
+    delay(500);
+  } else {
+    buttonMode = -1;
+  }
+}
+
+/*************************Bpm*************************/
+
+void Bpm() {
+
+  /*// Initialize sensor
+  if (!particleSensor.begin(Wire, I2C_SPEED_FAST))  //Use default I2C port, 400kHz speed
+  {
+    //Serial.println("MAX30105 was not found. Please check wiring/power. ");
+    while (1)
+      ;
+  }*/
+  /********OLED intro*********/
+  display.clearDisplay();
+  display.setTextSize(2);  // Draw 2X-scale text
+  display.setTextColor(SSD1306_WHITE);
+  display.setCursor(0, 0);
+  display.println(F("Heart Rate"));
+  display.println(F("Sensor"));
+  //  display.println(F("Sensor"));
+  display.display();  // Show initial text
+  delay(20);
+
+  particleSensor.setup();                     //Configure sensor with default settings
+  particleSensor.setPulseAmplitudeRed(0x0A);  //Turn Red LED to low to indicate sensor is running
+  particleSensor.setPulseAmplitudeGreen(0);   //Turn off Green LED
+
+  while (1) {
+    long irValue = particleSensor.getIR();
+
+    if (checkForBeat(irValue) == true) {
+      //We sensed a beat!
+      long delta = millis() - lastBeat;
+      lastBeat = millis();
+
+      beatsPerMinute = 60 / (delta / 1000.0);
+
+      if (beatsPerMinute < 255 && beatsPerMinute > 20) {
+        rates[rateSpot++] = (byte)beatsPerMinute;  //Store this reading in the array
+        rateSpot %= RATE_SIZE;                     //Wrap variable
+
+        //Take average of readings
+        beatAvg = 0;
+        for (byte x = 0; x < RATE_SIZE; x++)
+          beatAvg += rates[x];
+        beatAvg /= RATE_SIZE;
+      }
+
+      /********added from OLED display********/
+
+      display.clearDisplay();
+
+      display.setTextSize(2);  // Draw 2X-scale text
+      display.setTextColor(SSD1306_WHITE);
+      display.setCursor(0, 0);
+      display.print(F("HR= "));
+      display.print(beatAvg);
+      display.println(F(" bpm"));
+
+      display.setTextSize(1);  // Draw 2X-scale text
+      display.setTextColor(SSD1306_WHITE);
+      display.println();
+      display.println("Avg bpm = 60-100 bpm");
+
+      display.display();  // Show initial text
+      delay(20);
+
+
+
+      display.display();  // Show initial text
+      delay(20);
+    }
+    /********for button********/
+    // Serial.println(particleSensor.getIR());  //Send raw data to plotter
+
+    buttonState = digitalRead(buttonPin);
+    if (buttonState == HIGH) {
+      buttonMode = 2;
+      return;
+    }
+  }
+}
+/*************************Pulse Plotter*************************/
+
+void Pulse() {
+  Serial.begin(115200);
+  //Setup to sense a nice looking saw tooth on the plotter
+  byte ledBrightness = 0x1F;  //Options: 0=Off to 255=50mA
+  byte sampleAverage = 8;     //Options: 1, 2, 4, 8, 16, 32
+  byte ledMode = 3;           //Options: 1 = Red only, 2 = Red + IR, 3 = Red + IR + Green
+  int sampleRate = 100;       //Options: 50, 100, 200, 400, 800, 1000, 1600, 3200
+  int pulseWidth = 411;       //Options: 69, 118, 215, 411
+  int adcRange = 4096;        //Options: 2048, 4096, 8192, 16384
+
+  particleSensor.setup(ledBrightness, sampleAverage, ledMode, sampleRate, pulseWidth, adcRange);  //Configure sensor with these settings
+
+  //Arduino plotter auto-scales annoyingly. To get around this, pre-populate
+  //the plotter with 500 of an average reading from the sensor
+
+  //Take an average of IR readings at power up
+  const byte avgAmount = 64;
+  long baseValue = 0;
+  for (byte x = 0; x < avgAmount; x++) {
+    baseValue += particleSensor.getIR();  //Read the IR value
+  }
+  baseValue /= avgAmount;
+
+  //Pre-populate the plotter so that the Y scale is close to IR values
+  for (int x = 0; x < 500; x++)
+    Serial.println(baseValue);
+
+  /********OLED intro*********/
+  display.clearDisplay();
+  display.setTextSize(2);  // Draw 2X-scale text
+  display.setTextColor(SSD1306_WHITE);
+  display.setCursor(0, 0);
+  display.println(F("Pulse"));
+  display.println(F("Plotter"));
+
+  display.display();  // Show initial text
+  delay(1000);
+
+  while (1) {
+    Serial.println(particleSensor.getIR());  //Send raw data to plotter
+
+    /********OLED display********/
+    display.clearDisplay();
+
+    display.setTextSize(1);  // Draw 2X-scale text
+    display.setTextColor(SSD1306_WHITE);
+    display.setCursor(0, 0);
+    display.println("View pulse plotter on");
+    display.println("computer");
+    display.println();
+    display.println("Stop & close plotter");
+    display.println("when finished");
+    display.display();  // Show initial text
+    delay(20);
+
+    /*********Button*********/
+    buttonState = digitalRead(buttonPin);
+    if (buttonState == HIGH) {
+      Serial.end();
+      buttonMode = 1;
+      return;
+    }
+  }
+}
+
+/*************************Temperature*************************/
+
+void Temp() {
+
+  //The LEDs are very low power and won't affect the temp reading much but
+  //you may want to turn off the LEDs to avoid any local heating
+  particleSensor.setup(0);  //Configure sensor. Turn off LEDs
+  //particleSensor.setup(); //Configure sensor. Use 25mA for LED drive
+
+  particleSensor.enableDIETEMPRDY();  //Enable the temp ready interrupt. This is required.
+
+
+  /********OLED intro*********/
+  display.clearDisplay();
+  display.setTextSize(2);  // Draw 2X-scale text
+  display.setTextColor(SSD1306_WHITE);
+  display.setCursor(0, 0);
+  display.println(F("Temp"));
+  display.println(F("Sensor"));
+
+  display.display();  // Show initial text
+  delay(1000);
+
+  /****in loop****/
+  while (1) {
+    // float temperature = particleSensor.readTemperature();
+
+    // Serial.print("temperatureC=");
+    // Serial.print(temperature, 4);
+
+    float temperatureF = particleSensor.readTemperatureF();
+    float temperature = particleSensor.readTemperature();
+
+    // Serial.print(" temperatureF=");
+    // Serial.print(temperatureF, 4);
+
+    // Serial.println();
+
+    /********added from OLED display********/
+
+    display.clearDisplay();
+
+    display.setTextSize(2);  // Draw 2X-scale text
+    display.setTextColor(SSD1306_WHITE);
+    display.setCursor(0, 0);
+    display.println(F("Temp in F="));
+    display.println(temperatureF);
+    display.setTextSize(1);  // Draw 1X-scale text
+    display.setTextColor(SSD1306_WHITE);
+    display.println();
+    display.print(F("Temp in C = "));
+    display.println(temperature);
+    display.println();
+    display.print(F("Avg Temp = ~84F/~29C"));
+    display.display();  // Show initial text
+    delay(20);
+
+    /********Button********/
+
+    buttonState = digitalRead(buttonPin);
+    if (buttonState == HIGH) {
+      buttonMode = 3;
+      return;
+    }
+  }
+}
+
+/*************************EKG*************************/
+
+void EKG() {
+
+  digitalWrite(11, HIGH);
+
+  /********OLED intro*********/
+  display.clearDisplay();
+  display.setTextSize(2);  // Draw 2X-scale text
+  display.setTextColor(SSD1306_WHITE);
+  display.setCursor(0, 0);
+  display.println(F("EKG"));
+  display.setTextSize(1);
+  display.setTextColor(SSD1306_WHITE);
+  display.println();
+   display.println(F("Switch to EKG window"));
+  //  display.println();
+  // display.println(F("Attach 3 electrodes"));
+
+  display.display();  // Show initial text
+  delay(3000);
+  display.clearDisplay();
+  delay(10);
+
+  while (1) {
+
+    /********OLED********/
+    display.setTextSize(1);
+    display.setCursor(0, 0);
+    display.setTextColor(SSD1306_WHITE);
+    display.println(F("Close plotter when"));
+    display.println(F("done"));
+    display.println();
+    display.println(F("Less movement reduces"));
+    display.println(F("noise interference"));
+     display.println();
+    display.println(F("Will take a moment to"));
+    display.println(F("switch back to pulse"));
+
+      display.display();  // Show initial text
+    delay(20);
+
+    /********Button********/
+
+    buttonState = digitalRead(buttonPin);
+    if (buttonState == HIGH) {
+      buttonMode = 0;
+      digitalWrite(11, LOW);
+
+      return;
+    }
+  }
+}
+</pre>
+
+## EKG Code
+<pre style="background:#fdfdfd : border:none; height:40pc">
+  
+/* 
+This code is for the EKG and should be uploaded to the second Arduino.  
+Note: This code works the best when everything is directly connected to the Arduino or everything is connected with a perfboard. It is also better if I hold my breath to limit
+motion artifacts (extraneous noise that interferes with the EKG reading).
+
+I got the code from this website: 
+https://circuitdigest.com/microcontroller-projects/understanding-ecg-sensor-and-program-ad8232-ecg-sensor-with-arduino-to-diagnose-various-medical-conditions
+
+ * VARIABLES
+
+ * count: variable to hold count of rr peaks detected in 10 seconds
+
+ * flag: variable that prevents multiple rr peak detections in a single heatbeat
+
+ * hr: HeartRate (initialised to 72)
+
+ * hrv: Heart Rate variability (takes 10-15 seconds to stabilise)
+
+ * instance1: instance when heart beat first time
+
+ * interval: interval between second beat and first beat
+
+ * timer: variable to hold the time after which hr is calculated
+
+ * value: raw sensor value of output pin
+
+ */
+
+ int val; 
+
+long instance1 = 0, timer;
+
+double hrv = 0, hr = 72, interval = 0;
+
+int value = 0, count = 0;
+
+bool flag = 0;
+
+#define shutdown_pin 10
+
+#define threshold 100  // to identify R peak
+
+#define timer_value 10000  // 10 seconds timer to calculate hr
+
+/********High pass********/
+
+template<int order>  // order is 1 or 2
+class HighPass {
+private:
+  float a[order];
+  float b[order + 1];
+  float omega0;
+  float dt;
+  bool adapt;
+  float tn1 = 0;
+  float x[order + 1];  // Raw values
+  float y[order + 1];  // Filtered values
+
+public:
+  HighPass(float f0, float fs, bool adaptive) {
+    // f0: cutoff frequency (Hz)
+    // fs: sample frequency (Hz)
+    // adaptive: boolean flag, if set to 1, the code will automatically set
+    // the sample frequency based on the time history.
+
+    omega0 = 6.28318530718 * f0;
+    dt = 1.0 / fs;
+    adapt = adaptive;
+    tn1 = -dt;
+    for (int k = 0; k < order + 1; k++) {
+      x[k] = 0;
+      y[k] = 0;
+    }
+    setCoef();
+  }
+
+  void setCoef() {
+    if (adapt) {
+      float t = micros() / 1.0e6;
+      dt = t - tn1;
+      tn1 = t;
+    }
+
+    float alpha = omega0 * dt;
+    if (order == 1) {
+      float alphaFactor = 1 / (1 + alpha / 2.0);
+      a[0] = -(alpha / 2.0 - 1) * alphaFactor;
+      b[0] = alphaFactor;
+      b[1] = -alphaFactor;
+    }
+    if (order == 2) {
+      float alpha = omega0 * dt;
+      float dtSq = dt * dt;
+      float c[] = { omega0 * omega0, sqrt(2) * omega0, 1 };
+      float D = c[0] * dtSq + 2 * c[1] * dt + 4 * c[2];
+      b[0] = 4.0 / D;
+      b[1] = -8.0 / D;
+      b[2] = 4.0 / D;
+      a[0] = -(2 * c[0] * dtSq - 8 * c[2]) / D;
+      a[1] = -(c[0] * dtSq - 2 * c[1] * dt + 4 * c[2]) / D;
+    }
+  }
+
+  float filt(float xn) {
+    // Provide me with the current raw value: x
+    // I will give you the current filtered value: y
+    if (adapt) {
+      setCoef();  // Update coefficients if necessary
+    }
+    y[0] = 0;
+    x[0] = xn;
+    // Compute the filtered values
+    for (int k = 0; k < order; k++) {
+      y[0] += a[k] * y[k + 1] + b[k] * x[k];
+    }
+    y[0] += b[order] * x[order];
+
+    // Save the historical values
+    for (int k = order; k > 0; k--) {
+      y[k] = y[k - 1];
+      x[k] = x[k - 1];
+    }
+
+    // Return the filtered value
+    return y[0];
+  }
+};
+
+// Filter instance
+HighPass<2> lp(20, 1e3, true);
+
+
+void setup() {
+
+  Serial.begin(115200);
+
+  pinMode(8, INPUT);  // Setup for leads off detection LO +
+
+  pinMode(9, INPUT);  // Setup for leads off detection LO -
+
+  pinMode(11, INPUT);  // Digital read the mode
+
+  Serial.println("Min:0,Max:1023");  //***********************I dont know if I actually need this or if it's messing up my code
+}
+
+void loop() {
+
+  val = digitalRead(11);
+
+  if (val == 1) {
+
+    if ((digitalRead(8) == 1) || (digitalRead(9) == 1)) {
+
+      Serial.println("leads off!");
+
+      digitalWrite(shutdown_pin, LOW);  //standby mode
+
+      instance1 = micros();
+
+      timer = millis();
+
+    }
+
+    else {
+
+      digitalWrite(shutdown_pin, HIGH);  //normal mode
+
+      value = analogRead(A0);
+
+      value = map(value, 250, 400, 0, 100);  //to flatten the ecg values a bit
+
+      if ((value > threshold) && (!flag)) {
+
+        count++;
+
+        Serial.println("in");
+
+        flag = 1;
+
+        interval = micros() - instance1;  //RR interval
+
+        instance1 = micros();
+
+      }
+
+      else if ((value < threshold)) {
+
+        flag = 0;
+      }
+
+      if ((millis() - timer) > 10000) {
+        // used to be *6
+        hr = count * 10;
+
+        timer = millis();
+
+        count = 0;
+      }
+      // this used to be divided by 60
+      hrv = hr / 30 - interval / 1000000;
+
+      /********High-pass********/
+      // Read pin A0 and compute current in mA
+      // -- replace these two lines with your sensor readings --
+      float t = millis() / 1000.0;
+      float xn = sin(2 * PI * 2 * t) + 0.5 * cos(2 * PI * 50 * t);
+
+      // Compute the filtered signal
+      float yn = lp.filt(value);
+
+      Serial.print(hr);
+
+      Serial.print(",");
+
+      Serial.print(hrv);
+
+      Serial.print(",");
+
+      Serial.println(yn);
+
+      delay(15);
+    }
+  }
+  delay(10);
+}
+  
 </pre>
 
 # Bill of Materials
@@ -226,9 +917,12 @@ Don't forget to place the link of where to buy each component inside the quotati
 | Jumper Wires | Connects all components together | $2.10 | <a href="[https://www.sparkfun.com/products/9190](https://www.sparkfun.com/products/12796)"> Link </a> |
 |:--:|:--:|:--:|:--:|
 | 10K Ohm Resistor | Used as a pull-down resistor for pushbutton | $1.25 | <a href="https://www.sparkfun.com/products/14491"> Link </a> |
+|:--:|:--:|:--:|:--:|
+| 3m Red Dot Monitoring Electrodes | Electrodes used for the EKG and placed on the user's chest - connects to the sensor cable with electrode pads | $10.32 | <a href="https://www.amazon.com/3m-Red-Dot-Monitoring-Electrode/dp/B0015TI4G2"> Link </a> |
 
-# Other Resources/Examples
-One of the best parts about Github is that you can view how other people set up their own work. Here are some past BSE portfolios that are awesome examples. You can view how they set up their portfolio, and you can view their index.md files to understand how they implemented different portfolio components.
+
+# Other Resources/Links
+Here are some other resources I used to help with making my project
 - [Example 1](https://trashytuber.github.io/YimingJiaBlueStamp/)
 - [Example 2](https://sviatil0.github.io/Sviatoslav_BSE/)
 - [Example 3](https://arneshkumar.github.io/arneshbluestamp/)
