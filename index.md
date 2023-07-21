@@ -6,7 +6,10 @@
 
 My project is a student defined project that can record heart rate, temperature, plot the user’s pulse on a graph, and even has an EKG to measure the heart's electrical activity.  The user will be given instructions on an OLED display for how to use the device and the numerical data for their vitals.  This project was not easy to make and I ran into multiple obstacles.  However, in the end it was very rewarding to know that I was able to create and build my own project. 
 
-![](Cardiac Monitor.jpg){:width="50%" height="50%"}
+<!-- ![](Cardiac Monitor.jpg){:width="50%" height="50%"}-->
+
+
+
 
 <!--**Replace the BlueStamp logo below with an image of yourself and your completed project. Follow the guide [here](https://tomcam.github.io/least-github-pages/adding-images-github-pages-site.html) if you need help.**
 
@@ -22,7 +25,13 @@ embed demo night video here -->
 
 # Third Milestone
 
+<p align="center">
 <iframe width="560" height="315" src="https://www.youtube.com/embed/rJv0AnRTgms" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</p>
+
+<p align="center">
+<img src="Cardiac Monitor.jpg" alt="drawing" width="500"/>
+</p>
 
 ## Summary:
 For this milestone I added the EKG (Electrocardiogram) to my project.  This proved to be extremely difficult since there were many things I needed to change in my code and wiring.  I needed to add an external power supply and another Arduino Nano.  Besides adding the EKG, I made changes such as removing the pull up resistors that I had for the A4 and A5 pins since they were unnecessary and may have slowed my device down.  
