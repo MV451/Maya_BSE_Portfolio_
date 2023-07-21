@@ -112,21 +112,20 @@ In this first milestone I was able to connect my arduino to the MAX30101.  I tes
 
 Components Used:
 
-- MAX30101 with Header Pins
-- Small Rubber Band
-- x9 Male to Male Jumper Wires
-- x4 Female to Male Jumper Wires
-- Switch
-- 10K Ohm Resistor
-- x2 470K Ohm Resistor
-- Arduino Nano
-- 1 foot Mini-B USB to USB A Cord
-- Full Size Breadboard
-- x2 Mini Breadboards
+- MAX30101 with Header Pins - Has the four sensor modes (pulse plotter, heart rate, SpO2, and temperature)
+- Small Rubber Band - To put around MAX30101 board to stabilize finger
+- x9 Male to Male Jumper Wires - To connect components
+- x4 Female to Male Jumper Wires - To connect components
+- Switch - To change between the two modes
+- 10K Ohm Resistor - A pull-down resistor for the switch
+- x2 470K Ohm Resistor - Used as pull-up resistors for MAX30101
+- Arduino Nano - The microcontroller to upload code to
+- 1 foot Mini-B USB to USB A Cord - Connects Arduino to computer
+- Full Size Breadboard - All components are connected on this
+- x2 Mini Breadboards - Used to hold up the OLED display
 
 How the Components Work Together
 
-<!-- check to see why the pullup resistor was used-->
 The MAX30101 is a board that has the sensors that can record four different vital signs (heart rate, pulse, SpO2, and temperature).  The user is supposed to place their finger on the sensor where the light is flashing and use the mini rubberband to hold their finger in place since constant pressure achieves the best results.  NExt, female to male jumper wires were used to help connect the MAX30101 to the Arduino Nano.  Two 470K Ohm resistors were used as pullup resistors for the MAX30101 to stabilize the connection.  Another breadboard was used to have the circuit with the switch since there was not much room on the main breadboard.  This switch also needed a pulldown resistor.  The switch circuit and the MAX30101 all connect to the Arduino Nano while the Mini-B USB to USB A cord is was used to connect the device to my computer.
 
 <!-- include link to website with the schematic for how to wire a button/switch on arduino-->
@@ -182,7 +181,7 @@ Aftr finished the cat lamp I now have experience soldering and reviewed how circ
 Here's where you'll put images of your schematics. [Tinkercad](https://www.tinkercad.com/blog/official-guide-to-tinkercad-circuits) and [Fritzing](https://fritzing.org/learning/) are both great resoruces to create professional schematic diagrams, though BSE recommends Tinkercad becuase it can be done easily and for free in the browser. 
 
 # Code
-Here's where you'll put your code. The syntax below places it into a block of code. Follow the guide [here]([url](https://www.markdownguide.org/extended-syntax/)) to learn how to customize it to your project needs. 
+<!---Here's where you'll put your code. The syntax below places it into a block of code. Follow the guide [here]([url](https://www.markdownguide.org/extended-syntax/)) to learn how to customize it to your project needs. 
 
 ```c++
 void setup() {
@@ -195,7 +194,10 @@ void loop() {
   // put your main code here, to run repeatedly:
 
 }
-```
+```-->
+<pre style="background:#fdfdfd : border:none; height:40pc">
+fjseifj esofjes
+</pre>
 
 # Bill of Materials
 Here's where you'll list the parts in your project. To add more rows, just copy and paste the example rows below.
