@@ -29,9 +29,7 @@ For your final milestone, explain the outcome of your project. Key details to in
 <iframe width="560" height="315" src="https://www.youtube.com/embed/rJv0AnRTgms" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ## Summary:
-
-Explanation
-
+Explanation:
 For this milestone I added the EKG (Electrocardiogram) to my project.  This proved to be extremely difficult since there were many things I needed to change in my code and wiring.  I needed to add an external power supply and another Arduino Nano.  Besides adding the EKG, I made changes such as removing the pull up resistors that I had for the A4 and A5 pins since they were unnecessary and may have slowed my device down.  
 
 Components Used:
@@ -46,12 +44,10 @@ Components Used:
 - x60 Disposable Surface EKG Electrodes
 - Electrode Cable (3 connecter)
 
-How the Components Work Together
-
+How the Components Work Together:
 When I added the EKG I realized that there was too much noise interfering with the sensor and I needed to somehow reduce that.  The addition of an external power supply and another Arduino Nano works to reduce the electromagnetic fields around the EKG sensor so the data is readable.  The Arduinos are attached with a jumper wire on one of the digital pins.  This is how they are able to communicate with each other since the digital pins are able to send two types of signals (high and low) which work perfectly with the button.  When the button is pressed for the fourth time, the digital pin is set to high.  This is how the main Arduino tells the other Arduino to turn on the EKG.  Then when the button is pressed again, the digital pin reverts back to low which turns off the EKG. 
 
 ## Progress:
-
 I made significant progress with this milestone since now my base project and the EKG are able to work together.  It took a long time to figure out how exactly to find the solution to what was causing the noise interfering with the EKG.  I needed to rewire my entire device and consolidate it onto two breadboards since I was originally using an extra breadboard for the button which was unnecessary.  Now he OLED monitor is able to display the instructions for how to use the cardiac monitor and the sensor mode it is on. 
 
 ## Challenges Faced
@@ -77,9 +73,7 @@ The next part of my project for me will be to solder all of my part onto a perfb
 <iframe width="560" height="315" src="https://www.youtube.com/embed/y3VAmNlER5Y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>-->
 
 ## Summary:
-
-Explanation
-
+Explanation:
 For my second milestone, my goal was to alter my code so the cardiac monitor could switch between four modes and show the data on the OLED display.  The OLED display was supposed to display the vitals recorded from the MAX30101 sensor along with the pulse plotter graph.  This milestone was difficult since I needed to troubleshoot several problems and had to make a significant modification to my project to fix it.  I decided to remove the SpO2 sensor code since it was causing several complications such as preventing the OLED display from turning on and preventing my device from running since it took up too much memory.  I was hesitant to remove this, but doing so allowed me to complete the rest of my project.
 
 Components Used:
