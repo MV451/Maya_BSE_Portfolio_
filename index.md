@@ -73,7 +73,6 @@ The next part of my project for me will be to solder all of my part onto a perfb
 <iframe width="560" height="315" src="https://www.youtube.com/embed/y3VAmNlER5Y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>-->
 
 ## Summary:
-
 For my second milestone, my goal was to alter my code so the cardiac monitor could switch between four modes and show the data on the OLED display.  The OLED display was supposed to display the vitals recorded from the MAX30101 sensor along with the pulse plotter graph.  This milestone was difficult since I needed to troubleshoot several problems and had to make a significant modification to my project to fix it.  I decided to remove the SpO2 sensor code since it was causing several complications such as preventing the OLED display from turning on and preventing my device from running since it took up too much memory.  I was hesitant to remove this, but doing so allowed me to complete the rest of my project.
 
 Components Used:
@@ -96,7 +95,6 @@ How the Components Work Together
 The MAX30101 still functions in the same way as in the first milestone, however it now communicates with the button instead of the switch.  Since the buttons and switch have similar functions the wiring overall did not change much.  The main change to my device is the addition of the OLED display.  The OLED display uses I2C so it is connected to the Arduino nano on the A4 and A5 pins.  It also uses 5V.  I am still using three different breadboards for different parts of my device to keep the wiring organized.  One for the MAX30101, one for the button, and one for the Arduino.  I also color coded the wires so it is easy to identify which wire is connected to which pin.<--add the last two sentences to the first milestone?-->
 
 ## Progress:
-
 Since I wanted to switch between more than two modes I needed to change my switch to a button.  For this I did research on how to code a button on Arduino.  I was able to alter this code to fit the three sensor modes and now am able to cycle between the sensors with it resetting to the first sensor after three presses.  This was difficult since I needed to include while loops in my code so the sensors would continue to run.  I altered the code so each sensor would set up only once, but also constantly check to see if the button was pressed again.  The OLED display was luckily not challenging to set up, especially since I had experience with my last OLED display.  The new OLED display is compatible with the SSD1306 (which is a type of driver), so most code works with it.  I did notice how the OLED address was 0x3C, so I needed to change that in the code since originally the address was 0x3D.  The OLED monitor was able to display all of the data except for the graph of the pulse plotter.  Since my device can now switch between modes and the OLED display is able to show the data, I am now done with the main part of my project and can start on my modifications!
 
 ## Challenges Faced
@@ -110,9 +108,6 @@ I am excited to have finished the main part of my project and am now ready to st
 <iframe width="560" height="315" src="https://www.youtube.com/embed/nh_UaqvMNVQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ## Summary:
-
-Explanation
-
 In this first milestone I was able to connect my arduino to the MAX30101.  I tested out each sensor that was integrated in the board.  The MAX30101 came with libraries so I did not need to make the code from scratch.  After connecting the MAX30101 to the Arduino, I needed to figure out how to use a switch to change between the modes.  For this first milestone, I focused on switching between two modes: SpO2 and the pulse plotter.  After doing research on how to structure the code for a switch, I was able to combine the code from both modes into one file so the device could cycle between these modes.  Now the MAX30101 board and the switch are connected to the Arduino and the switch can control which sensor is turned on.
 
 Components Used:
@@ -137,15 +132,12 @@ The MAX30101 is a board that has the sensors that can record four different vita
 <!-- include link to website with the schematic for how to wire a button/switch on arduino-->
 
 ## Progress
-
 I was able to learn how to connect the Arduino Nano to the MAX30101.  In order to do this, I needed to solder on some header pins so jumper wires could connect the board to the Arduino.  After I matched each pin to the pin on the Arduino Nano, I was able to test out each of the four sensors that was included in the MAX30101.  In order to turn each sensor on, I used the libraries that came with the MAX30101 and all of them were able to work (although the SpO2 sensor is not as accurate as it could be).  After I got that to work I wanted to connect a switch to the device so I could switch between modes.  Even though there are four different modes, I started off with just two so I could start off using a simpleswitch.  I found a schematic that showed how to connect a switch to an Arduino and how to structure the code.  Then I needed to find a way to add the code from the two sensors (SpO2 and pulse plotter) and integrate it into the code controlling the switch.  This was difficult since there were many things that needed to be defined and I needed to understand the code in order to know where they should be placed.  In the end I was able to combine all of the codes together and my device can now switch between recording SpO2 and the pulse plotter data.
 
 ## Challenges
-
 Getting to this point was challenging since I have not had any coding experience or worked with an Arduino before.  It was difficult to combine the different codes for the SpO2 sensor and the pulse plotter into the code for the switch.  I also spent a lot of time trying to connect an OLED monitor to display the data from the sensor instead of it just being displayed on the computer.  However, the display was not compatible with the codes I needed to use for the device.  To fix this, a different monitor was ordered, but I was not able to receive it in time to include it in my first milestone.  I also struggled with learning how to use Arduino in general since I was unfamiliar with microcontrollers and C++.  
 
 ## Next Steps
-
 Since I was unable to connect a monitor to my device for my first milestone I will try to connect the new monitor for my second milestone.  Hopefully the monitor will be able to change the data it displays when the switch is flipped.  It should also be able to display the pulse Plotter.  I need to add a second switch to the device so it can switch between all four modes instead of just the two.  This will require for me to learn more about how to code a switch.  I will need to figure out how to wire a second switch to my breadboard since it is running out of room.
 
 <!--**Don't forget to replace the text below with the embedding for your milestone video. Go to Youtube, click Share -> Embed, and copy and paste the code to replace what's below.**
@@ -157,9 +149,6 @@ Since I was unable to connect a monitor to my device for my first milestone I wi
 <iframe width="560" height="315" src="https://www.youtube.com/embed/koEIfZc_ih4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ## Summary:
-
-Explanation
-
 My starter project was a mini cat lamp that lights up whenever it is in the dark.  The purpose of this starter project was mainly for me to gain experience soldering multiple pieces together.  The parts of the cat body are made up of the same material as circuit boards so it would not burn when soldering.  The project also came with a photoresistor, transistor, LED, 100k resistor, switch, and battery.
 
 Components Used:
@@ -174,7 +163,6 @@ Components Used:
 - Coin Battery Holder
 
 ### How the Parts Work Together:
-
 The cat lamp came with pieces that were similar to the material a circuit board is made up of and is what makes up most of the lamp.  Soldering all of the parts to the cat lamp not only attaches all of the pieces together, but also connected the other components to the circuit such as the transistor and LED. The circuit in the cat lamp is wired to be in parallel which means the current has two pathways to flow through.  One path has the transistor and LED while the other has the photoresistor.  Current is the movement of electrons and electrons prefer to take the path of least resistance.  When light shines on the photoresistor, the resistance decreases making that pathway more favorable.  With more electrons are going through the photoresistor pathway, less current goes through the pathway with the transistor and LED.  The reduced current is not enough to go past the transistor and light up the LED.  This is why the lamp does not light up when it is exposed to light.  However, when the lamp is in the dark, the resistance of the photoresistor increases making the pathway less favorable and causing more current to go through the other pathway.  This current is strong enough to get past the transistor and light up the LED.  This is how the cat lamp is able to turn on whenever it is dark.
 
 ## Progress:
