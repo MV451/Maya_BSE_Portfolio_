@@ -36,12 +36,12 @@ Components Used:
 - x2 Arduino Nanos
 - x16 Female to Male Jumper Wires
 - x5 Male to Male Jumper Wires
-- External Power Supply
+- Power Supply Module - The external power supply that reduces noise for the EKG sensor
 - x2 1 foot Mini-B USB to USB A Cord
-- Barrel Jack Adapter
-- AD8232 Heart Monitor
-- x60 Disposable Surface EKG Electrodes
-- Electrode Cable (3 connecter)
+- AC to Barrel Jack Connector - Connects power supply to outlet
+- AD8232 Heart Monitor - The EKG sensor
+- x50 Disposable Surface EKG Electrodes - Placed on the user's chest for an EKG reading (reference AD8232 hookup guide linked at the bottom)
+- Electrode Cable (3 connecter) - connects the AD8232 to the electrodes
 
 How the Components Work Together
 
@@ -77,18 +77,10 @@ For my second milestone, my goal was to alter my code so the cardiac monitor cou
 
 Components Used:
 
-- MAX30101 with Header Pins
-- Small Rubber Band
 - x9 Male to Male Jumper Wires
 - x8 Female to Male Jumper Wires
-- Small Push Button
-- 128x64 OLED Display (SSD1306)
-- 10K Ohm Resistor
-- x2 470K Ohm Resistor
-- Arduino Nano
-- 1 foot Mini-B USB to USB A Cord
-- Full Size Breadboard
-- x2 Mini Breadboards
+- Small Push Button - Used to switch modes
+- 128x64 OLED Display (SSD1306) - Displays numerical vital signs
 
 How the Components Work Together
 
@@ -121,8 +113,8 @@ Components Used:
 - x2 470K Ohm Resistor - Used as pull-up resistors for MAX30101
 - Arduino Nano - The microcontroller to upload code to
 - 1 foot Mini-B USB to USB A Cord - Connects Arduino to computer
-- Full Size Breadboard - All components are connected on this
-- x2 Mini Breadboards - Used to hold up the OLED display
+- Full Size Breadboard - Components are connected to this
+- x2 Mini Breadboards - Components are connected to this
 
 How the Components Work Together
 
@@ -180,7 +172,7 @@ Aftr finished the cat lamp I now have experience soldering and reviewed how circ
 # Schematic for Device
 <!--Here's where you'll put images of your schematics. [Tinkercad](https://www.tinkercad.com/blog/official-guide-to-tinkercad-circuits) and [Fritzing](https://fritzing.org/learning/) are both great resoruces to create professional schematic diagrams, though BSE recommends Tinkercad becuase it can be done easily and for free in the browser.-->
 
-![](imagename.jpg){:width = "50%" height = "50%"}
+![](Circuit Diagram.jpg){:width = "50%" height = "50%"}
 
 # Code
 <!---Here's where you'll put your code. The syntax below places it into a block of code. Follow the guide [here]([url](https://www.markdownguide.org/extended-syntax/)) to learn how to customize it to your project needs. 
