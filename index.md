@@ -909,6 +909,5 @@ void loop() {
   }
   delay(10);
 }
-</pre>
 
 
