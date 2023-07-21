@@ -40,8 +40,8 @@ Components Used:
 - x2 1 foot Mini-B USB to USB A Cord
 - AC to Barrel Jack Connector - Connects power supply to outlet
 - AD8232 Heart Monitor - The EKG sensor
-- x50 Disposable Surface EKG Electrodes - Placed on the user's chest for an EKG reading (reference AD8232 hookup guide linked at the bottom)
-- Electrode Cable (3 connecter) - connects the AD8232 to the electrodes
+- x50 Disposable Surface EKG Electrodes - Placed on the user's chest for an EKG reading (refer to AD8232 hookup guide)
+- Electrode Cable (3 connecter) - Connects the AD8232 to the electrodes
 
 How the Components Work Together
 
