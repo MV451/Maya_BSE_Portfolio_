@@ -226,7 +226,7 @@ void loop() {
 ```-->
 
 ## Main Code
-<pre style="background:#fdfdfd : border:none; height:40pc">
+<pre style="background:#fdfdfd ; border:none; height:40pc">
 /* This is my main code that is supposed to be uploaded to the main Arduino (attached to the OLED display and the MAX30101).  The EKG code is supposed to be opened up in a separate window and uploaded to the second Arduino. */
 
 //Fxns need to be declared at the beginning of the code so the computer knows it's coming (I put all of the actual fxns at the end)
@@ -683,7 +683,7 @@ void EKG() {
 
 
 ## EKG Code
-<pre style="background:#fdfdfd : border:none; height:40pc">
+<pre style="background:#fdfdfd ; border:none; height:40pc">
 
 /*This code is for the EKG and should be uploaded to the second Arduino.  
 Note: This code works the best when everything is directly connected to the Arduino or everything is connected with a perfboard. It is also better if I hold my breath to limit
