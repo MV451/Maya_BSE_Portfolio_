@@ -706,7 +706,7 @@ bool flag = 0;
 
 #define timer_value 10000  // 10 seconds timer to calculate hr
 
-/********High pass********/
+/********High-pass********/
 
 template<int order>  // order is 1 or 2
 class HighPass {
@@ -922,9 +922,11 @@ Don't forget to place the link of where to buy each component inside the quotati
 
 
 # Other Resources/Links
-Here are some other resources I used to help with making my project
-- [Example 1](https://trashytuber.github.io/YimingJiaBlueStamp/)
-- [Example 2](https://sviatil0.github.io/Sviatoslav_BSE/)
-- [Example 3](https://arneshkumar.github.io/arneshbluestamp/)
+Here are some other websites and resources that helped me make my project.
+- [Pushbutton/Switch Code](https://docs.arduino.cc/built-in-examples/digital/Button)
+- [Website with EKG Code](https://circuitdigest.com/microcontroller-projects/understanding-ecg-sensor-and-program-ad8232-ecg-sensor-with-arduino-to-diagnose-various-medical-conditions)
+- [MAX30101 Hookup Guide](https://learn.sparkfun.com/tutorials/sparkfun-photodetector-max30101-hookup-guide)
+- [AD8232 Heart Rate Monitor Hookup Guide](https://learn.sparkfun.com/tutorials/ad8232-heart-rate-monitor-hookup-guide?_gl=1*1cra7qz*_ga*MjExOTM1OTQxMC4xNjg5MDE2OTcz*_ga_T369JS7J9N*MTY4OTAxNjk3My4xLjAuMTY4OTAxNjk3My4wLjAuMA..)
+- [High-Pass Filter Code for EKG](https://github.com/curiores/ArduinoTutorials/blob/main/BasicFilters/ArduinoImplementations/HighPass/HighPass.ino)
 
-To watch the BSE tutorial on how to create a portfolio, click here. -->
+
