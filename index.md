@@ -1,8 +1,8 @@
 # Cardiac Monitor with Temperature Sensing Capabilities
 
-My project is a student defined project that can record heart rate, temperature, plot the user’s pulse on a graph, and even has an EKG to measure the heart's electrical activity.  The user will be given instructions on an OLED display for how to use the device and the numerical data for their vitals.  This project was not easy to make and I ran into multiple obstacles.  However, in the end it was very rewarding to know that I was able to create and build my own project. 
+![Headstone Image](Cardiac Monitor.jpg)
 
-<!--Replace this text with a brief description (2-3 sentences) of your project. This description should draw the reader in and make them interested in what you've built. You can include what the biggest challenges, takeaways, and triumphs from completing the project were. As you complete your portfolio, remember your audience is less familiar than you are with all that your project entails!-->
+My project is a student defined project that can record heart rate, temperature, plot the user’s pulse on a graph, and even has an EKG to measure the heart's electrical activity.  The user will be given instructions on an OLED display for how to use the device and the numerical data for their vitals.  This project was not easy to make and I ran into multiple obstacles.  However, in the end it was very rewarding to know that I was able to create and build my own project. 
 
 | **Engineer** | **School** | **Area of Interest** | **Grade** |
 |:--:|:--:|:--:|:--:|
@@ -11,16 +11,12 @@ My project is a student defined project that can record heart rate, temperature,
 <!--**Replace the BlueStamp logo below with an image of yourself and your completed project. Follow the guide [here](https://tomcam.github.io/least-github-pages/adding-images-github-pages-site.html) if you need help.**
 
 ![Headstone Image](logo.svg)
+<!--
+# Demo Night Video
 
-# Final Milestone
+embed demo night video here -->
 
-For your final milestone, explain the outcome of your project. Key details to include are:
-- What you've accomplished since your previous milestone
-- What your biggest challenges and triumphs were at BSE
-- A summary of key topics you learned about
-- What you hope to learn in the future after everything you've learned at BSE
-
-**Don't forget to replace the text below with the embedding for your milestone video. Go to Youtube, click Share -> Embed, and copy and paste the code to replace what's below.**
+<!--**Don't forget to replace the text below with the embedding for your milestone video. Go to Youtube, click Share -> Embed, and copy and paste the code to replace what's below.**
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/F7M7imOVGug" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>-->
 
@@ -174,6 +170,45 @@ Aftr finished the cat lamp I now have experience soldering and reviewed how circ
 
 ![](Circuit Diagram.jpg){:width = "50%" height = "50%"}
 
+# Bill of Materials
+<!--Here's where you'll list the parts in your project. To add more rows, just copy and paste the example rows below.
+Don't forget to place the link of where to buy each component inside the quotation marks in the corresponding row after href =. Follow the guide [here]([url](https://www.markdownguide.org/extended-syntax/)) to learn how to customize this to your project needs. -->
+
+| **Part** | **Note** | **Price** | **Link** |
+|:--:|:--:|:--:|:--:|
+| Arduino Nano | The microcontroller for this device and where the code is uploaded to | $26.50 | <a href="https://www.amazon.com/Arduino-A000066-ARDUINO-UNO-R3/dp/B008GRTSV6/"> Link </a> |
+|:--:|:--:|:--:|:--:|
+| MAX30101 | Board with the four sensing capabilites.  I used three (pulse plotter, heart rate, temperature sensor) since the SpO2 sensor did not work well. | $22.50 | <a href="https://www.sparkfun.com/products/16474"> Link </a> |
+|:--:|:--:|:--:|:--:|
+| Single Lead Heart Rate Monitor - AD8232 | EKG Sensor | $21.50 | <a href="https://www.sparkfun.com/products/12650"> Link </a> |
+|:--:|:--:|:--:|:--:|
+| Sensor Cable - Electrode Pads (3 connector) | Connects with AD8232 and the three electrodes on the user's chest| $5.50 | <a href="https://www.sparkfun.com/products/12970"> Link </a> |
+|:--:|:--:|:--:|:--:|
+| OLED Display | Used to show numerical vital signs | $14.99 | <a href="https://www.amazon.com/Hosyond-Display-Self-Luminous-Compatible-Raspberry/dp/B09C5K91H7?keywords=0.96%2Binch%2Boled&qid=1670424637&sprefix=0.96%2Caps%2C100&sr=8-1-spons&spLa=ZW5jcnlwdGVkUXVhbGlmaWVyPUExVE9XUUM4UDQ1OFROJmVuY3J5cHRlZElkPUExMDExOTk0MTBDMzBDR0VNTlRPMSZlbmNyeXB0ZWRBZElkPUEwMjI3NTk2M0xBSTNXUVdWTVFMMyZ3aWRnZXROYW1lPXNwX2F0ZiZhY3Rpb249Y2xpY2tSZWRpcmVjdCZkb05vdExvZ0NsaWNrPXRydWU%3D&linkCode=sl1&tag=howtoelect0e4-20&linkId=6fe68cb2d4629728f64de60fcb2d9ca0&language=en_US&ref_=as_li_ss_tl&th=1"> Link </a> |
+|:--:|:--:|:--:|:--:|
+| Power Supply Module | EKG sensor gets power from this supply to reduce noise | $8.99 | <a href="https://www.amazon.com/HiLetgo-Supply-Module-Prototype-Breadboard/dp/B00HJ6AE72/ref=pd_lpo_sccl_1/141-3397973-3298860?pd_rd_w=61m0Z&content-id=amzn1.sym.116f529c-aa4d-4763-b2b6-4d614ec7dc00&pf_rd_p=116f529c-aa4d-4763-b2b6-4d614ec7dc00&pf_rd_r=T9CGYP5BSFZSX63VA3HB&pd_rd_wg=1kDND&pd_rd_r=f8b85e16-8bec-4fc5-8ff6-a7b427b19fd7&pd_rd_i=B00HJ6AE72&psc=1"> Link </a> |
+|:--:|:--:|:--:|:--:|
+| AC to Barrel Connector | Plugs Power Module into outlet | $6.50 | <a href="https://www.sparkfun.com/products/15312"> Link </a> |
+|:--:|:--:|:--:|:--:|
+| 30cm 3.0 USB to Mini USB cable| Connects Arduino Nano to Computerfor uploading code and power| $10.13 | <a href="https://www.amazon.com/30cm-Cable-arduino-Nano-Mini/dp/B09PBJJBVJ"> Link </a> |
+|:--:|:--:|:--:|:--:|
+| Black Pushbutton | The button used to switch between modes | $0.55 | <a href="https://www.sparkfun.com/products/9190"> Link </a> |
+|:--:|:--:|:--:|:--:|
+| Jumper Wires | Connects all components together | $2.10 | <a href="[https://www.sparkfun.com/products/9190](https://www.sparkfun.com/products/12796)"> Link </a> |
+|:--:|:--:|:--:|:--:|
+| 10K Ohm Resistor | Used as a pull-down resistor for pushbutton | $1.25 | <a href="https://www.sparkfun.com/products/14491"> Link </a> |
+|:--:|:--:|:--:|:--:|
+| 3m Red Dot Monitoring Electrodes | Electrodes used for the EKG and placed on the user's chest - connects to the sensor cable with electrode pads | $10.32 | <a href="https://www.amazon.com/3m-Red-Dot-Monitoring-Electrode/dp/B0015TI4G2"> Link </a> |
+
+# Other Resources/Links
+Here are some other websites and resources that helped me make my project.
+- [Pushbutton/Switch Code](https://docs.arduino.cc/built-in-examples/digital/Button)
+- [Website with EKG Code](https://circuitdigest.com/microcontroller-projects/understanding-ecg-sensor-and-program-ad8232-ecg-sensor-with-arduino-to-diagnose-various-medical-conditions)
+- [MAX30101 Hookup Guide](https://learn.sparkfun.com/tutorials/sparkfun-photodetector-max30101-hookup-guide)
+- [AD8232 Heart Rate Monitor Hookup Guide](https://learn.sparkfun.com/tutorials/ad8232-heart-rate-monitor-hookup-guide?_gl=1*1cra7qz*_ga*MjExOTM1OTQxMC4xNjg5MDE2OTcz*_ga_T369JS7J9N*MTY4OTAxNjk3My4xLjAuMTY4OTAxNjk3My4wLjAuMA..)
+- [High-Pass Filter Code for EKG](https://github.com/curiores/ArduinoTutorials/blob/main/BasicFilters/ArduinoImplementations/HighPass/HighPass.ino)
+- [Video on how to use Power Supply Module](https://www.youtube.com/watch?v=tU0ztOQP6PA)
+
 # Code
 <!---Here's where you'll put your code. The syntax below places it into a block of code. Follow the guide [here]([url](https://www.markdownguide.org/extended-syntax/)) to learn how to customize it to your project needs. 
 
@@ -192,7 +227,6 @@ void loop() {
 
 ## Main Code
 <pre style="background:#fdfdfd : border:none; height:40pc">
-'''
 /* This is my main code that is supposed to be uploaded to the main Arduino (attached to the OLED display and the MAX30101).  The EKG code is supposed to be opened up in a separate window and uploaded to the second Arduino. */
 
 //Fxns need to be declared at the beginning of the code so the computer knows it's coming (I put all of the actual fxns at the end)
@@ -643,16 +677,15 @@ void EKG() {
     }
   }
 }
-'''
+
 </pre>
 
 
 
 ## EKG Code
 <pre style="background:#fdfdfd : border:none; height:40pc">
-'''
-/* 
-This code is for the EKG and should be uploaded to the second Arduino.  
+
+/*This code is for the EKG and should be uploaded to the second Arduino.  
 Note: This code works the best when everything is directly connected to the Arduino or everything is connected with a perfboard. It is also better if I hold my breath to limit
 motion artifacts (extraneous noise that interferes with the EKG reading).
 
@@ -876,47 +909,6 @@ void loop() {
   }
   delay(10);
 }
-'''
 </pre>
-
-# Bill of Materials
-<!--Here's where you'll list the parts in your project. To add more rows, just copy and paste the example rows below.
-Don't forget to place the link of where to buy each component inside the quotation marks in the corresponding row after href =. Follow the guide [here]([url](https://www.markdownguide.org/extended-syntax/)) to learn how to customize this to your project needs. -->
-
-| **Part** | **Note** | **Price** | **Link** |
-|:--:|:--:|:--:|:--:|
-| Arduino Nano | The microcontroller for this device and where the code is uploaded to | $26.50 | <a href="https://www.amazon.com/Arduino-A000066-ARDUINO-UNO-R3/dp/B008GRTSV6/"> Link </a> |
-|:--:|:--:|:--:|:--:|
-| MAX30101 | Board with the four sensing capabilites.  I used three (pulse plotter, heart rate, temperature sensor) since the SpO2 sensor did not work well. | $22.50 | <a href="https://www.sparkfun.com/products/16474"> Link </a> |
-|:--:|:--:|:--:|:--:|
-| Single Lead Heart Rate Monitor - AD8232 | EKG Sensor | $21.50 | <a href="https://www.sparkfun.com/products/12650"> Link </a> |
-|:--:|:--:|:--:|:--:|
-| Sensor Cable - Electrode Pads (3 connector) | Connects with AD8232 and the three electrodes on the user's chest| $5.50 | <a href="https://www.sparkfun.com/products/12970"> Link </a> |
-|:--:|:--:|:--:|:--:|
-| OLED Display | Used to show numerical vital signs | $14.99 | <a href="https://www.amazon.com/Hosyond-Display-Self-Luminous-Compatible-Raspberry/dp/B09C5K91H7?keywords=0.96%2Binch%2Boled&qid=1670424637&sprefix=0.96%2Caps%2C100&sr=8-1-spons&spLa=ZW5jcnlwdGVkUXVhbGlmaWVyPUExVE9XUUM4UDQ1OFROJmVuY3J5cHRlZElkPUExMDExOTk0MTBDMzBDR0VNTlRPMSZlbmNyeXB0ZWRBZElkPUEwMjI3NTk2M0xBSTNXUVdWTVFMMyZ3aWRnZXROYW1lPXNwX2F0ZiZhY3Rpb249Y2xpY2tSZWRpcmVjdCZkb05vdExvZ0NsaWNrPXRydWU%3D&linkCode=sl1&tag=howtoelect0e4-20&linkId=6fe68cb2d4629728f64de60fcb2d9ca0&language=en_US&ref_=as_li_ss_tl&th=1"> Link </a> |
-|:--:|:--:|:--:|:--:|
-| Power Supply Module | EKG sensor gets power from this supply to reduce noise | $8.99 | <a href="https://www.amazon.com/HiLetgo-Supply-Module-Prototype-Breadboard/dp/B00HJ6AE72/ref=pd_lpo_sccl_1/141-3397973-3298860?pd_rd_w=61m0Z&content-id=amzn1.sym.116f529c-aa4d-4763-b2b6-4d614ec7dc00&pf_rd_p=116f529c-aa4d-4763-b2b6-4d614ec7dc00&pf_rd_r=T9CGYP5BSFZSX63VA3HB&pd_rd_wg=1kDND&pd_rd_r=f8b85e16-8bec-4fc5-8ff6-a7b427b19fd7&pd_rd_i=B00HJ6AE72&psc=1"> Link </a> |
-|:--:|:--:|:--:|:--:|
-| AC to Barrel Connector | Plugs Power Module into outlet | $6.50 | <a href="https://www.sparkfun.com/products/15312"> Link </a> |
-|:--:|:--:|:--:|:--:|
-| 30cm 3.0 USB to Mini USB cable| Connects Arduino Nano to Computerfor uploading code and power| $10.13 | <a href="https://www.amazon.com/30cm-Cable-arduino-Nano-Mini/dp/B09PBJJBVJ"> Link </a> |
-|:--:|:--:|:--:|:--:|
-| Black Pushbutton | The button used to switch between modes | $0.55 | <a href="https://www.sparkfun.com/products/9190"> Link </a> |
-|:--:|:--:|:--:|:--:|
-| Jumper Wires | Connects all components together | $2.10 | <a href="[https://www.sparkfun.com/products/9190](https://www.sparkfun.com/products/12796)"> Link </a> |
-|:--:|:--:|:--:|:--:|
-| 10K Ohm Resistor | Used as a pull-down resistor for pushbutton | $1.25 | <a href="https://www.sparkfun.com/products/14491"> Link </a> |
-|:--:|:--:|:--:|:--:|
-| 3m Red Dot Monitoring Electrodes | Electrodes used for the EKG and placed on the user's chest - connects to the sensor cable with electrode pads | $10.32 | <a href="https://www.amazon.com/3m-Red-Dot-Monitoring-Electrode/dp/B0015TI4G2"> Link </a> |
-
-
-# Other Resources/Links
-Here are some other websites and resources that helped me make my project.
-- [Pushbutton/Switch Code](https://docs.arduino.cc/built-in-examples/digital/Button)
-- [Website with EKG Code](https://circuitdigest.com/microcontroller-projects/understanding-ecg-sensor-and-program-ad8232-ecg-sensor-with-arduino-to-diagnose-various-medical-conditions)
-- [MAX30101 Hookup Guide](https://learn.sparkfun.com/tutorials/sparkfun-photodetector-max30101-hookup-guide)
-- [AD8232 Heart Rate Monitor Hookup Guide](https://learn.sparkfun.com/tutorials/ad8232-heart-rate-monitor-hookup-guide?_gl=1*1cra7qz*_ga*MjExOTM1OTQxMC4xNjg5MDE2OTcz*_ga_T369JS7J9N*MTY4OTAxNjk3My4xLjAuMTY4OTAxNjk3My4wLjAuMA..)
-- [High-Pass Filter Code for EKG](https://github.com/curiores/ArduinoTutorials/blob/main/BasicFilters/ArduinoImplementations/HighPass/HighPass.ino)
-- [Video on how to use Power Supply Module](https://www.youtube.com/watch?v=tU0ztOQP6PA)
 
 
