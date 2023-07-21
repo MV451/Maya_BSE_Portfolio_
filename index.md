@@ -1,12 +1,12 @@
 # Cardiac Monitor with Temperature Sensing Capabilities
 
-![](Cardiac Monitor.jpg){:width = "50%" height = "50%"}
-
-My project is a student defined project that can record heart rate, temperature, plot the user’s pulse on a graph, and even has an EKG to measure the heart's electrical activity.  The user will be given instructions on an OLED display for how to use the device and the numerical data for their vitals.  This project was not easy to make and I ran into multiple obstacles.  However, in the end it was very rewarding to know that I was able to create and build my own project. 
-
 | **Engineer** | **School** | **Area of Interest** | **Grade** |
 |:--:|:--:|:--:|:--:|
 | Maya V | UPA | Bioengineering | Incoming Senior
+
+My project is a student defined project that can record heart rate, temperature, plot the user’s pulse on a graph, and even has an EKG to measure the heart's electrical activity.  The user will be given instructions on an OLED display for how to use the device and the numerical data for their vitals.  This project was not easy to make and I ran into multiple obstacles.  However, in the end it was very rewarding to know that I was able to create and build my own project. 
+
+![](Cardiac Monitor.jpg){:width = "50%" height = "50%"}
 
 <!--**Replace the BlueStamp logo below with an image of yourself and your completed project. Follow the guide [here](https://tomcam.github.io/least-github-pages/adding-images-github-pages-site.html) if you need help.**
 
