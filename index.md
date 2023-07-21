@@ -162,18 +162,16 @@ Components Used:
 - CR 2032 Coin Battery
 - Coin Battery Holder
 
-### How the Parts Work Together:
+How the Parts Work Together:
 The cat lamp came with pieces that were similar to the material a circuit board is made up of and is what makes up most of the lamp.  Soldering all of the parts to the cat lamp not only attaches all of the pieces together, but also connected the other components to the circuit such as the transistor and LED. The circuit in the cat lamp is wired to be in parallel which means the current has two pathways to flow through.  One path has the transistor and LED while the other has the photoresistor.  Current is the movement of electrons and electrons prefer to take the path of least resistance.  When light shines on the photoresistor, the resistance decreases making that pathway more favorable.  With more electrons are going through the photoresistor pathway, less current goes through the pathway with the transistor and LED.  The reduced current is not enough to go past the transistor and light up the LED.  This is why the lamp does not light up when it is exposed to light.  However, when the lamp is in the dark, the resistance of the photoresistor increases making the pathway less favorable and causing more current to go through the other pathway.  This current is strong enough to get past the transistor and light up the LED.  This is how the cat lamp is able to turn on whenever it is dark.
 
 ## Progress:
 I was able to solder all of the pieces of the cat lamp together and understand exactly how it works.  All of the pieces of the cat lamp body were soldered together except for the arms which are removable.  The cat lamp can now be switched on and off and turns on when it is in the dark.  This project was simple and did not take long for me to complete overall.
 
 ## Challenges:
-
 Soldering all of the cat pieces was fairly simple, however the paper instructions was slightly different than the instructional video  it came with (the cat was in a different orientation).  This inconsistency did not affect how the cat lamp functions though, just the appearance.  When looking closely at the body of the cat, the circuit is able to be seen.  I had trouble understanding the circuit at the beginning since it seemed as if it was in series.  However, after researching some more, I realized that the circuit had to be in parallel in order for the cat lamp to work.  The lines on the cat lamp marking the circuit pathway may have just been imprinted incorrectly.  After figuring this out, I was able to draw out the circuit to understand exactly how the cat lamp functions.  
 
 ## Next Steps:
-
 Aftr finished the cat lamp I now have experience soldering and reviewed how circuits work.  My next step is to start on my intensive project.  I will need to solder a little, but this project will mainly involve an Arduino and learning how to compile all of the code together for the sensor.  I also will learn how to connect the sensor to the Arduino with jumper wires.
 
 <!--**Don't forget to replace the text below with the embedding for your milestone video. Go to Youtube, click Share -> Embed, and copy and paste the code to replace what's below.**
@@ -205,11 +203,27 @@ Don't forget to place the link of where to buy each component inside the quotati
 
 | **Part** | **Note** | **Price** | **Link** |
 |:--:|:--:|:--:|:--:|
-| Item Name | What the item is used for | $Price | <a href="https://www.amazon.com/Arduino-A000066-ARDUINO-UNO-R3/dp/B008GRTSV6/"> Link </a> |
+| Arduino Nano | The microcontroller for this device and where the code is uploaded to | $26.50 | <a href="https://www.amazon.com/Arduino-A000066-ARDUINO-UNO-R3/dp/B008GRTSV6/"> Link </a> |
 |:--:|:--:|:--:|:--:|
-| Item Name | What the item is used for | $Price | <a href="https://www.amazon.com/Arduino-A000066-ARDUINO-UNO-R3/dp/B008GRTSV6/"> Link </a> |
+| MAX30101 | Board with the four sensing capabilites.  I used three (pulse plotter, heart rate, temperature sensor) since the SpO2 sensor did not work well. | $22.50 | <a href="https://www.sparkfun.com/products/16474"> Link </a> |
 |:--:|:--:|:--:|:--:|
-| Item Name | What the item is used for | $Price | <a href="https://www.amazon.com/Arduino-A000066-ARDUINO-UNO-R3/dp/B008GRTSV6/"> Link </a> |
+| Single Lead Heart Rate Monitor - AD8232 | EKG Sensor | $21.50 | <a href="https://www.sparkfun.com/products/12650"> Link </a> |
+|:--:|:--:|:--:|:--:|
+| Sensor Cable - Electrode Pads (3 connector) | Connects with AD8232 and the three electrodes on the user's chest| $5.50 | <a href="https://www.sparkfun.com/products/12970"> Link </a> |
+|:--:|:--:|:--:|:--:|
+| OLED Display | Used to show numerical vital signs | $14.99 | <a href="https://www.amazon.com/Hosyond-Display-Self-Luminous-Compatible-Raspberry/dp/B09C5K91H7?keywords=0.96%2Binch%2Boled&qid=1670424637&sprefix=0.96%2Caps%2C100&sr=8-1-spons&spLa=ZW5jcnlwdGVkUXVhbGlmaWVyPUExVE9XUUM4UDQ1OFROJmVuY3J5cHRlZElkPUExMDExOTk0MTBDMzBDR0VNTlRPMSZlbmNyeXB0ZWRBZElkPUEwMjI3NTk2M0xBSTNXUVdWTVFMMyZ3aWRnZXROYW1lPXNwX2F0ZiZhY3Rpb249Y2xpY2tSZWRpcmVjdCZkb05vdExvZ0NsaWNrPXRydWU%3D&linkCode=sl1&tag=howtoelect0e4-20&linkId=6fe68cb2d4629728f64de60fcb2d9ca0&language=en_US&ref_=as_li_ss_tl&th=1"> Link </a> |
+|:--:|:--:|:--:|:--:|
+| Power Supply Module | EKG sensor gets power from this supply to reduce noise | $8.99 | <a href="https://www.amazon.com/HiLetgo-Supply-Module-Prototype-Breadboard/dp/B00HJ6AE72/ref=pd_lpo_sccl_1/141-3397973-3298860?pd_rd_w=61m0Z&content-id=amzn1.sym.116f529c-aa4d-4763-b2b6-4d614ec7dc00&pf_rd_p=116f529c-aa4d-4763-b2b6-4d614ec7dc00&pf_rd_r=T9CGYP5BSFZSX63VA3HB&pd_rd_wg=1kDND&pd_rd_r=f8b85e16-8bec-4fc5-8ff6-a7b427b19fd7&pd_rd_i=B00HJ6AE72&psc=1"> Link </a> |
+|:--:|:--:|:--:|:--:|
+| AC to Barrel Connector | Plugs Power Module into outlet | $6.50 | <a href="https://www.sparkfun.com/products/15312"> Link </a> |
+|:--:|:--:|:--:|:--:|
+| 30cm 3.0 USB to Mini USB cable| Connects Arduino Nano to Computerfor uploading code and power| $10.13 | <a href="https://www.amazon.com/30cm-Cable-arduino-Nano-Mini/dp/B09PBJJBVJ"> Link </a> |
+|:--:|:--:|:--:|:--:|
+| Black Pushbutton | The button used to switch between modes | $0.55 | <a href="https://www.sparkfun.com/products/9190"> Link </a> |
+|:--:|:--:|:--:|:--:|
+| Jumper Wires | Connects all components together | $2.10 | <a href="[https://www.sparkfun.com/products/9190](https://www.sparkfun.com/products/12796)"> Link </a> |
+|:--:|:--:|:--:|:--:|
+| 10K Ohm Resistor | Used as a pull-down resistor for pushbutton | $1.25 | <a href="https://www.sparkfun.com/products/14491"> Link </a> |
 |:--:|:--:|:--:|:--:|
 
 # Other Resources/Examples
