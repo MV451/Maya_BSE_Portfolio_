@@ -177,8 +177,10 @@ Aftr finished the cat lamp I now have experience soldering and reviewed how circ
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/CaCazFBhYKs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>-->
 
-# Schematics 
-Here's where you'll put images of your schematics. [Tinkercad](https://www.tinkercad.com/blog/official-guide-to-tinkercad-circuits) and [Fritzing](https://fritzing.org/learning/) are both great resoruces to create professional schematic diagrams, though BSE recommends Tinkercad becuase it can be done easily and for free in the browser. 
+# Schematic for Device
+<!--Here's where you'll put images of your schematics. [Tinkercad](https://www.tinkercad.com/blog/official-guide-to-tinkercad-circuits) and [Fritzing](https://fritzing.org/learning/) are both great resoruces to create professional schematic diagrams, though BSE recommends Tinkercad becuase it can be done easily and for free in the browser.-->
+
+![](imagename.jpg){:width = "50%" height = "50%"}
 
 # Code
 <!---Here's where you'll put your code. The syntax below places it into a block of code. Follow the guide [here]([url](https://www.markdownguide.org/extended-syntax/)) to learn how to customize it to your project needs. 
@@ -286,17 +288,7 @@ void setup() {
   pinMode(buttonPin, INPUT);
   pinMode(11, OUTPUT);
   digitalWrite(11, LOW);
-  // initialize serial communication:
-  //Serial.begin(115200);
 
-  /***************From SpO2 Setup***************/
-
-  // Serial.begin(115200);  // initialize serial communication at 115200 bits per second:
-
-  // pinMode(pulseLED, OUTPUT);
-  // pinMode(readLED, OUTPUT);
-
-  //Maybe I can remove the code above????
   /********From OLED********/
 
   // SSD1306_SWITCHCAPVCC = generate display voltage from 3.3V internally
@@ -928,5 +920,6 @@ Here are some other websites and resources that helped me make my project.
 - [MAX30101 Hookup Guide](https://learn.sparkfun.com/tutorials/sparkfun-photodetector-max30101-hookup-guide)
 - [AD8232 Heart Rate Monitor Hookup Guide](https://learn.sparkfun.com/tutorials/ad8232-heart-rate-monitor-hookup-guide?_gl=1*1cra7qz*_ga*MjExOTM1OTQxMC4xNjg5MDE2OTcz*_ga_T369JS7J9N*MTY4OTAxNjk3My4xLjAuMTY4OTAxNjk3My4wLjAuMA..)
 - [High-Pass Filter Code for EKG](https://github.com/curiores/ArduinoTutorials/blob/main/BasicFilters/ArduinoImplementations/HighPass/HighPass.ino)
+- [Video on how to use Power Supply Module](https://www.youtube.com/watch?v=tU0ztOQP6PA)
 
 
