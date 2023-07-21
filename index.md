@@ -224,7 +224,6 @@ Don't forget to place the link of where to buy each component inside the quotati
 | Jumper Wires | Connects all components together | $2.10 | <a href="[https://www.sparkfun.com/products/9190](https://www.sparkfun.com/products/12796)"> Link </a> |
 |:--:|:--:|:--:|:--:|
 | 10K Ohm Resistor | Used as a pull-down resistor for pushbutton | $1.25 | <a href="https://www.sparkfun.com/products/14491"> Link </a> |
-|:--:|:--:|:--:|:--:|
 
 # Other Resources/Examples
 One of the best parts about Github is that you can view how other people set up their own work. Here are some past BSE portfolios that are awesome examples. You can view how they set up their portfolio, and you can view their index.md files to understand how they implemented different portfolio components.
