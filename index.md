@@ -4,6 +4,10 @@
 |:--:|:--:|:--:|:--:|
 | Maya V | UPA | Bioengineering | Incoming Senior
 
+<p align="center">
+<img src="Cardiac Monitor.jpg" alt="drawing" width="500"/>
+</p>
+
 My project is a student defined project that can record heart rate, temperature, plot the user’s pulse on a graph, and even has an EKG to measure the heart's electrical activity.  The user will be given instructions on an OLED display for how to use the device and the numerical data for their vitals.  This project was not easy to make and I ran into multiple obstacles.  However, in the end it was very rewarding to know that I was able to create and build my own project. 
 
 <!-- ![](Cardiac Monitor.jpg){:width="50%" height="50%"}-->
@@ -27,10 +31,6 @@ embed demo night video here -->
 
 <p align="center">
 <iframe width="560" height="315" src="https://www.youtube.com/embed/rJv0AnRTgms" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-</p>
-
-<p align="center">
-<img src="Cardiac Monitor.jpg" alt="drawing" width="500"/>
 </p>
 
 ## Summary:
@@ -65,7 +65,9 @@ The next part of my project for me will be to solder all of my part onto a perfb
 
 # Second Milestone
 
+<p align="center">
 <iframe width="560" height="315" src="https://www.youtube.com/embed/IoWeX2wKDNI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</p>
 
 <!--For your second milestone, explain what you've worked on since your previous milestone. You can highlight:
 - Technical details of what you've accomplished and how they contribute to the final goal
@@ -102,7 +104,9 @@ I am excited to have finished the main part of my project and am now ready to st
 
 # First Milestone
 
+<p align="center">
 <iframe width="560" height="315" src="https://www.youtube.com/embed/nh_UaqvMNVQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</p>
 
 ## Summary:
 In this first milestone I was able to connect my arduino to the MAX30101.  I tested out each sensor that was integrated in the board.  The MAX30101 came with libraries so I did not need to make the code from scratch.  After connecting the MAX30101 to the Arduino, I needed to figure out how to use a switch to change between the modes.  For this first milestone, I focused on switching between two modes: SpO2 and the pulse plotter.  After doing research on how to structure the code for a switch, I was able to combine the code from both modes into one file so the device could cycle between these modes.  Now the MAX30101 board and the switch are connected to the Arduino and the switch can control which sensor is turned on.
@@ -142,7 +146,9 @@ Since I was unable to connect a monitor to my device for my first milestone I wi
 
 # Starter Project
 
+<p align="center">
 <iframe width="560" height="315" src="https://www.youtube.com/embed/koEIfZc_ih4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</p>
 
 ## Summary:
 My starter project was a mini cat lamp that lights up whenever it is in the dark.  The purpose of this starter project was mainly for me to gain experience soldering multiple pieces together.  The parts of the cat body are made up of the same material as circuit boards so it would not burn when soldering.  The project also came with a photoresistor, transistor, LED, 100k resistor, switch, and battery.
