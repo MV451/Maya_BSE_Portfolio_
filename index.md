@@ -33,7 +33,7 @@ My project is a student defined project that can record heart rate, temperature,
 ## Summary:
 For this milestone I added the EKG (Electrocardiogram) to my project.  This proved to be extremely difficult since there were many things I needed to change in my code and wiring.  I needed to add an external power supply and another Arduino Nano.  Besides adding the EKG, I made changes such as removing the pull up resistors that I had for the A4 and A5 pins since they were unnecessary and may have slowed my device down.  
 
-Components Used:
+Components Added:
 
 - x2 Arduino Nanos
 - x16 Female to Male Jumper Wires
@@ -50,7 +50,7 @@ How the Components Work Together
 When I added the EKG I realized that there was too much noise interfering with the sensor and I needed to somehow reduce that.  The addition of an external power supply and another Arduino Nano works to reduce the electromagnetic fields around the EKG sensor so the data is readable.  The Arduinos are attached with a jumper wire on one of the digital pins.  This is how they are able to communicate with each other since the digital pins are able to send two types of signals (high and low) which work perfectly with the button.  When the button is pressed for the fourth time, the digital pin is set to high.  This is how the main Arduino tells the other Arduino to turn on the EKG.  Then when the button is pressed again, the digital pin reverts back to low which turns off the EKG. 
 
 ## Progress:
-I made significant progress with this milestone since now my base project and the EKG are able to work together.  It took a long time to figure out how exactly to find the solution to what was causing the noise interfering with the EKG.  I needed to rewire my entire device and consolidate it onto two breadboards since I was originally using an extra breadboard for the button which was unnecessary.  Now he OLED monitor is able to display the instructions for how to use the cardiac monitor and the sensor mode it is on. 
+I made significant progress with this milestone since now my base project and the EKG are able to work together.  It took a long time to figure out how exactly to find the solution to what was causing the noise interfering with the EKG.  I needed to rewire my entire device and consolidate it onto two breadboards since I was originally using an extra breadboard for the button which was unnecessary.  Now the OLED monitor is able to display the instructions for how to use the cardiac monitor and the sensor mode it is on. 
 
 ## Challenges Faced
 This milestone was difficult for me since the EKG was not like any of the other sensors I have in my device.  The EKG measures the electrical activity of the heart.  However, anything that is plugged into power creates an electromagnetic field.  This field interferes with the EKG causing the data to be noisy meaning that there are extra waves.  After doing some research and receiving help, I realized that I needed to separate the EKG from the rest of the devices since they were creating electromagnetic fields that interfered with the device.  This is why I ended up adding another Arduino Nano to my device and an external power supply.  I also found out that using a high-pass filter would lower the noise on my device.  This is a filter that blocks all of the low frequencies the sensor picks up while letting high frequencies “pass” onto the plotter.  I tried a low-pass filter originally, but that did not help as much as the high-pass filter.  All of these modifications significantly lowered the noise in the EKG plotter.
@@ -79,7 +79,7 @@ The next part of my project for me will be to solder all of my part onto a perfb
 ## Summary:
 For my second milestone, my goal was to alter my code so the cardiac monitor could switch between four modes and show the data on the OLED display.  The OLED display was supposed to display the vitals recorded from the MAX30101 sensor along with the pulse plotter graph.  This milestone was difficult since I needed to troubleshoot several problems and had to make a significant modification to my project to fix it.  I decided to remove the SpO2 sensor code since it was causing several complications such as preventing the OLED display from turning on and preventing my device from running since it took up too much memory.  I was hesitant to remove this, but doing so allowed me to complete the rest of my project.
 
-Components Used:
+Components Added:
 
 - x9 Male to Male Jumper Wires
 - x8 Female to Male Jumper Wires
