@@ -237,7 +237,6 @@ void loop() {
 }
 ```-->
 
-## Main Code
 <pre style="background:#fdfdfd ; border:none; height:40pc">
 /* This is my main code that is supposed to be uploaded to the main Arduino (attached to the OLED display and the MAX30101).  The EKG code is supposed to be opened up in a separate window and uploaded to the second Arduino. */
 
